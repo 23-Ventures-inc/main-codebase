@@ -23,6 +23,15 @@ const data = [
         point:
           "Experience, community, culture, KPI’s, Strategize and planning, process and systems",
       },
+      {
+        key: "Equity Dilution",
+        point: "6% Equity hold by 23Ventures",
+      },
+      {
+        key: "Milestones (In 5 Months)",
+        point:
+          "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
+      },
     ],
   },
   {
@@ -42,6 +51,15 @@ const data = [
         key: "Additionals",
         point:
           "Experience, community, culture, KPI’s, Strategize and planning, process and systems",
+      },
+      {
+        key: "Equity Dilution",
+        point: "6% Equity hold by 23Ventures",
+      },
+      {
+        key: "Milestones (In 5 Months)",
+        point:
+          "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
       },
     ],
   },
@@ -103,10 +121,25 @@ const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
           <motion.div
             className={`space-y-8 `}
             variants={{
-              open: { visibility: "visible", height: "auto", opacity: 1 },
-              close: { visibility: "hidden", height: 0, opacity: 0 },
+              open: {
+                visibility: "visible",
+                height: "auto",
+                opacity: 1,
+                transition: { duration: 0.5 },
+              },
+              close: {
+                visibility: "hidden",
+                height: 0,
+                opacity: 0,
+                transition: { duration: 0.5 },
+              },
             }}
-            exit={{ height: 0, visibility: "hidden", opacity: 0 }}
+            exit={{
+              height: 0,
+              visibility: "hidden",
+              opacity: 0,
+              transition: { duration: 0.5 },
+            }}
             animate={open ? "open" : "close"}
           >
             {keyPoints.map(({ key, point }, index) => (
@@ -114,10 +147,10 @@ const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
                 key={index}
                 className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-t border-gray-800 pt-6"
               >
-                <h3 className="text-gray-400 text-lg md:text-xl w-full md:w-1/4">
+                <h3 className="text-gray-400 text-base md:text-lg w-full md:w-1/4">
                   {key}
                 </h3>
-                <p className="text-gray-200 text-lg md:text-xl font-medium w-full md:w-3/4">
+                <p className="text-gray-200 text-base md:text-lg font-medium w-full md:w-3/4">
                   {point}
                 </p>
               </motion.div>

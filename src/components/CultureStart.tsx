@@ -7,7 +7,8 @@ const CultureStart = () => {
         <h1 className="md:text-7xl text-3xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
           Our virtual space where
           <br />
-          you figure out the path for your dreams
+          you <span className="text-color">figure out</span> the path for your
+          dreams
         </h1>
       </span>
       <Button

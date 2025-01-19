@@ -33,7 +33,7 @@ const links = [
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center gap-8 h-[20vh] md:h-[10vh] w-[90%] flex-col boxesbg rounded-t-[30px]  mx-auto">
+    <div className="flex justify-center items-center gap-8 h-[20vh] md:h-[10vh] w-[90%] flex-col  rounded-t-[30px]  mx-auto mt-20">
       <div className="flex justify-around items-center gap-4 flex-col md:flex-row w-full">
         <span className="flex justify-center items-center gap-8">
           {links.map(({ link, text }, index) => {
@@ -41,7 +41,7 @@ const Footer = () => {
               <Link
                 href={link}
                 key={index}
-                className="underline hover:no-underline text-xl"
+                className="font-thin hover:no-underline text-xl"
               >
                 {text}
               </Link>

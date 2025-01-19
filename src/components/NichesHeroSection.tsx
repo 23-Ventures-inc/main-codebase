@@ -55,7 +55,7 @@ const NichesHeroSection = () => {
       <span className="text-color font-bold mx-auto my-4 text-xl italic">
         Sub-Niche
       </span>
-      <div className="grid grid-cols-1 sm:grid-cols-5 gap-8 w-[80%] md:w-[80%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 w-[80%] md:w-[80%]">
         {belowData.map(({ url, text }, index) => {
           return (
             <div
@@ -73,7 +73,7 @@ const NichesHeroSection = () => {
               />
               {/* Content */}
               <div className="relative z-20 flex flex-col justify-center items-center gap-4 text-center text-white">
-                <h2 className="text-lg font-bold sm:text-xl md:text-3xl">
+                <h2 className={`text-lg sm:text-xl md:text-xl font-bold `}>
                   {text}
                 </h2>
               </div>
