@@ -1,6 +1,9 @@
+"use client";
+import { motion } from "motion/react";
+
 const ProcessPage = () => {
   return (
-    <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden">
+    <motion.div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden">
       <video
         src="/process.mp4"
         autoPlay
@@ -17,7 +20,7 @@ const ProcessPage = () => {
           Give your best shot !
         </p>
       </span>
-    </div>
+    </motion.div>
   );
 };
 

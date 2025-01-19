@@ -1,11 +1,13 @@
+"use client";
 import FaqSection from "@/components/FaqSection";
 import NichesHeroSection from "@/components/NichesHeroSection";
 import NichesStart from "@/components/NichesStart";
+import { motion } from "motion/react";
 
 const page = () => {
   return (
     <>
-      <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden">
+      <motion.div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden">
         <video
           src="/niche.mp4"
           autoPlay
@@ -15,7 +17,7 @@ const page = () => {
         ></video>
 
         <NichesStart />
-      </div>
+      </motion.div>
       <div className="w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col">
         <NichesHeroSection />
       </div>
