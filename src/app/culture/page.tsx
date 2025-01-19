@@ -16,6 +16,7 @@ const page = () => {
           loop
           muted
           controls={false}
+          playsInline
           className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
         ></video>
         <CultureStart />

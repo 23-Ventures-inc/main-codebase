@@ -10,6 +10,7 @@ const ProcessPage = () => {
         loop
         muted
         controls={false}
+        playsInline
         className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
       ></video>
       <span className="flex justify-center items-center gap-8 flex-col ">
