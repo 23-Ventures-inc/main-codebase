@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "23 Ventures - Scaling Startups Globally",
+  title: "23 Ventures Inc. --- The one's who dont stop dreaming",
   description:
-    "23 Ventures is a venture capital firm specializing in SaaS, AI/ML, Web3, and digital agencies. Our 20-week remote program offers mentorship, funding, and a global network to help you achieve $10,000 MRR or 10,000 active users.",
+    "Join 23 Ventures' (A venture capital firm) 20-week program to access expert mentorship, funding, and a global network. Designed for SaaS, AI/ML, and digital service agencies aiming to reach $1 million MRR and beyond.",
   keywords: [
     "venture capital",
     "startup funding",
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
     "mentorship for startups",
   ],
   openGraph: {
-    title: "23 Ventures - Empowering Startups to Scale Globally",
+    title: "23 Ventures Inc. --- The one's who dont stop dreaming",
     description:
-      "Join 23 Ventures' 20-week program to access expert mentorship, funding, and a global network. Designed for SaaS, AI/ML, Web3, and digital agencies aiming to reach $10,000 MRR or 10,000 users.",
+      "Join 23 Ventures' (A venture capital firm) 20-week program to access expert mentorship, funding, and a global network. Designed for SaaS, AI/ML, and digital service agencies aiming to reach $1 million MRR and beyond.",
     images: "/preview.jpg",
     url: "https://23ventures.com",
     creators: "Manthan Gupta",
   },
   twitter: {
-    title: "23 Ventures - Empowering Startups Globally",
+    title: "23 Ventures Inc. --- The one's who dont stop dreaming",
     description:
-      "Accelerate your SaaS, AI/ML, Web3, or digital agency startup with 23 Ventures' mentorship, funding, and global network. Achieve $10,000 MRR or 10,000 users in just 20 weeks.",
+      "Join 23 Ventures' (A venture capital firm) 20-week program to access expert mentorship, funding, and a global network. Designed for SaaS, AI/ML, and digital service agencies aiming to reach $1 million MRR and beyond.",
     images: "/preview.jpg",
     card: "summary_large_image",
   },
