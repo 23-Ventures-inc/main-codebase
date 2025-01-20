@@ -36,7 +36,7 @@ const data = [
   {
     title: "Bi-Weekly Workshops",
     description:
-      "A series of 20 workshops over 20 weeks, offering actionable insights into various aspects of business growth. These sessions include expert guidance on marketing, operations, funding, and scaling strategies.",
+      "A series of 10-12 workshops over 20 weeks, offering actionable insights into various aspects of business growth. These sessions include expert guidance on marketing, operations, funding, and scaling strategies.",
   },
   {
     title: "Milestone Tracking and Progress Evaluation",
