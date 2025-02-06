@@ -14,9 +14,9 @@ const features = [
     imgUrl: "/h4.webp",
   },
   {
-    title: "Quick Investments",
+    title: "Quick Investments and Demo Day",
     description:
-      "Get access to investment opportunities that help you scale your business faster, with no unnecessary delays.",
+      "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
     imgUrl: "/h1.webp",
   },
 
