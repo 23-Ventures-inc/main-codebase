@@ -16,10 +16,10 @@ const links = [
     link: "/culture",
   },
   { text: "Niches", link: "/niches" },
-  // {
-  //   text: "Blogs",
-  //   link: "/",
-  // },
+  {
+    text: "News",
+    link: "https://medium.com/@23ventureinc",
+  },
 ];
 
 const Navbar = () => {
