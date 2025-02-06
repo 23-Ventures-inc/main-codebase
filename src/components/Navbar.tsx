@@ -16,6 +16,10 @@ const links = [
     link: "/culture",
   },
   { text: "Niches", link: "/niches" },
+  // {
+  //   text: "Blogs",
+  //   link: "/",
+  // },
 ];
 
 const Navbar = () => {

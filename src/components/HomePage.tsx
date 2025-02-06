@@ -8,8 +8,9 @@ const HomePage = () => {
           Where <span className="text-color"> Entrepreneurs </span> <br /> don’t
           stop dreaming !
         </h1>
-        <p className="md:text-3xl text-xl text-center font-semibold mb-8">
-          APPLY for Summer Batch 2025
+        <p className="md:text-2xl text-sm text-center font-semibold mb-8 italic md:w-[60%]">
+          Secure Upto 10k before the cohort, hit milestones, validate traction,
+          and then connect with investors post-Cohort
         </p>
       </span>
       <Button
