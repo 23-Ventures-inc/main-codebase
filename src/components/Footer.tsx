@@ -28,7 +28,14 @@ const links = [
     text: "Culture",
     link: "/culture",
   },
-  { text: "Niches", link: "/niches" },
+  {
+    text: "News",
+    link: "https://medium.com/@23ventureinc",
+  },
+  {
+    text: "Apply",
+    link: "https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit",
+  },
 ];
 
 const Footer = () => {
