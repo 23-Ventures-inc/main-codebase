@@ -15,7 +15,7 @@ const data = [
       {
         key: "Funding",
         point:
-          "Connecting with Vc’s if you hit the milestones ( Exception not Agency )",
+          "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
       { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
       {
@@ -31,6 +31,11 @@ const data = [
         key: "Milestones (In 5 Months)",
         point:
           "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
+      },
+      {
+        key: "What’s in it for you ?",
+        point:
+          "Secure upto $10K before the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -44,7 +49,7 @@ const data = [
       {
         key: "Funding",
         point:
-          "Connecting with Vc’s if you hit the milestones ( Exception not Agency )",
+          "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
       { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
       {
@@ -60,6 +65,11 @@ const data = [
         key: "Milestones (In 5 Months)",
         point:
           "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
+      },
+      {
+        key: "What’s in it for you ?",
+        point:
+          "Secure upto $10K before the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -97,7 +107,7 @@ interface BoxesProps {
 }
 
 const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
-  const [open, setIsOpen] = useState<boolean>(false);
+  const [open, setIsOpen] = useState<boolean>(true);
 
   return (
     <>

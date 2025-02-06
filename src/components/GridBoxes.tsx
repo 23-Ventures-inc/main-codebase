@@ -14,9 +14,9 @@ const features = [
     imgUrl: "/h4.webp",
   },
   {
-    title: "Quick Investments",
+    title: "Quick Investments and Demo Day",
     description:
-      "Get access to investment opportunities that help you scale your business faster, with no unnecessary delays.",
+      "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
     imgUrl: "/h1.webp",
   },
 
@@ -43,8 +43,11 @@ const features = [
 const GridBoxes = () => {
   return (
     <div className="w-full h-auto min-h-screen flex justify-center items-center py-8 flex-col my-12">
-      <span className="w-full  text-center text-2xl md:text-7xl font-bold mb-16 mt-10">
+      <span className="w-full  text-center text-2xl md:text-7xl font-bold mb-4  mt-10">
         <span className="text-color">Real</span> Value Proposition
+      </span>
+      <span className="w-full  text-center text-2xl font-bold mb-16">
+        Founder’s Point of Interest
       </span>
       <div className="w-[90%] max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map(({ description, imgUrl, title }, index) => {
