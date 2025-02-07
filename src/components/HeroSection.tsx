@@ -84,7 +84,7 @@ const HeroSection = () => {
           <span className="text-color">ideas</span>
         </h2>
         <p className="md:text-xl text-base text-center font-medium backdrop-blur-sm">
-          This is not just about backing ideas, its about backing people !!
+          6-months Startup Program, 15 Early Stage founders, Building the next big thing
         </p>
       </span>
     </div>
