@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 const data = [
   {
     title: "Summer",
-    descriptiopn: "20 Weeks Exclusive High Intensity program January - June",
+    descriptiopn: "20 Weeks Exclusive High Intensity program March - August",
     points: [
       { key: "Duration", point: "6 Months" },
       { key: "Location", point: "Remote" },
@@ -41,7 +41,7 @@ const data = [
   },
   {
     title: "Winter",
-    descriptiopn: "20 Weeks Exclusive High Intensity program July - December",
+    descriptiopn: "20 Weeks Exclusive High Intensity program September - February",
     points: [
       { key: "Duration", point: "6 Months" },
       { key: "Location", point: "Remote" },
