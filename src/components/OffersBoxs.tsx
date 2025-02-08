@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import Button from "./Button";
+// import { useState } from "react";
+// import Button from "./Button";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const data = [
   {
     title: "Summer",
-    descriptiopn: "20 Weeks Exclusive High Intensity program March - August",
+    descriptiopn: "20 Weeks Exclusive High Intensity program",
     points: [
       { key: "Duration", point: "6 Months" },
       { key: "Location", point: "Remote" },
@@ -15,7 +16,7 @@ const data = [
       {
         key: "Funding",
         point:
-          "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
+          "Secure upto 10,000 Dollars during the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
       { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
       {
@@ -35,13 +36,13 @@ const data = [
       {
         key: "What’s in it for you ?",
         point:
-          "Secure upto $10K before the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Secure upto $10K  during the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
   {
     title: "Winter",
-    descriptiopn: "20 Weeks Exclusive High Intensity program September - February",
+    descriptiopn: "20 Weeks Exclusive High Intensity program ",
     points: [
       { key: "Duration", point: "6 Months" },
       { key: "Location", point: "Remote" },
@@ -49,7 +50,7 @@ const data = [
       {
         key: "Funding",
         point:
-          "Secure upto 10,000 Dollars before the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
+          "Secure upto 10,000 Dollars during the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
       { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
       {
@@ -69,7 +70,7 @@ const data = [
       {
         key: "What’s in it for you ?",
         point:
-          "Secure upto $10K before the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Secure upto $10K during the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -89,6 +90,7 @@ const OffersBoxs = () => {
               description={descriptiopn}
               keyPoints={points}
               title={title}
+              index={index}
             />
           );
         })}
@@ -104,10 +106,11 @@ interface BoxesProps {
     key: string;
     point: string;
   }[];
+  index: number;
 }
 
-const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
-  const [open, setIsOpen] = useState<boolean>(true);
+const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
+  // const [open, setIsOpen] = useState<boolean>(true);
 
   return (
     <>
@@ -119,12 +122,23 @@ const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
               {title}
             </h2>
             <p className="text-lg md:text-xl text-gray-400 mb-8">
-              {description}
+              {description}{" "}
+              {index == 0 ? (
+                <span className="font-bold text-white text-2xl">
+                  {" "}
+                  <br />
+                  March - August
+                </span>
+              ) : (
+                <span className="font-bold text-white text-2xl">
+                  September - February
+                </span>
+              )}
             </p>
-            <Button
+            {/* <Button
               text="Apply"
               onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
-            />
+            /> */}
           </div>
 
           {/* Key Points Section */}
@@ -150,7 +164,7 @@ const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
               opacity: 0,
               transition: { duration: 0.5 },
             }}
-            animate={open ? "open" : "close"}
+            // animate={open ? "open" : "close"}
           >
             {keyPoints.map(({ key, point }, index) => (
               <motion.div
@@ -167,14 +181,18 @@ const Boxes = ({ description, keyPoints, title }: BoxesProps) => {
             ))}
           </motion.div>
         </motion.div>
-        <button
-          onClick={() => {
-            setIsOpen((perv) => !perv);
-          }}
-          className=" w-[40%] mt-8 py-3 px-3 rounded-full flex justify-center items-center bg-white text-black font-bold mx-auto"
+        <Link
+          // onClick={() => {
+          //   setIsOpen((perv) => !perv);
+          // }}
+          target="_blank"
+          href={
+            "https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+          }
+          className=" w-[70%] mt-8 py-3 px-3 rounded-full flex justify-center items-center bg-white text-black font-bold mx-auto hover:text-white hover:bg-[#499478] text-3xl"
         >
-          Expand
-        </button>
+          Apply
+        </Link>
       </div>
     </>
   );
