@@ -4,13 +4,20 @@ const HomePage = () => {
   return (
     <>
       <span className="flex justify-center items-center gap-8 flex-col ">
+        <span className="  text-center lg:w-auto rounded-full px-[3.5rem] py-[0.8rem] font-semibold text-sm lg:text-base text-white border-2 border-[#499478] ">
+          A new age Venture Studio
+        </span>
         <h1 className="md:text-7xl text-3xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
-          Where <span className="text-color"> Entrepreneurs </span> <br /> don’t
-          stop dreaming !
+          <span className="md:text-3xl text-xl italic"> Here</span>
+          <br />
+          <span className="text-color"> Entrepreneurs </span> build the <br />
+          Startups of <span className="text-color">tomorrow</span>
         </h1>
-        <p className="md:text-2xl text-sm text-center font-semibold mb-8 italic md:w-[55%]">
-          If you’re a dreamer looking to make an impact in entrepreneurship,
-          whether you have an idea or not, click the form and apply!
+        <p className="md:text-xl text-sm text-center font-semibold mb-8 italic md:w-[55%]">
+          We bring entrepreneurs of all ages together, invest time and money in
+          them, and connect them with investors post season—If you’re an
+          entrepreneur, don’t worry about the age, click the form below and
+          apply ! Ideas are secondary, people are the first.
         </p>
       </span>
       <Button
