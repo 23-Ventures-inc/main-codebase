@@ -7,6 +7,7 @@ import HomeEnd from "@/components/HomeEnd";
 import GridBoxes from "@/components/GridBoxes";
 import { motion } from "motion/react";
 import New from "@/components/New";
+import WeWorkFast from "@/components/WeWorkFast";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <OffersBoxs />
       <GridBoxes />
       <New />
+      <WeWorkFast />
       <div className="w-full h-auto flex justify-center items-center py-14">
         <FaqSection />
       </div>
