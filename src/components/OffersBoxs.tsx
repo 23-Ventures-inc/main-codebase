@@ -131,7 +131,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
                 </span>
               ) : (
                 <span className="font-bold text-white text-2xl">
-                  October - November
+                  October - March
                 </span>
               )}
             </p>

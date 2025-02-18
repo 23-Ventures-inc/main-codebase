@@ -6,27 +6,33 @@ import { motion, useScroll, useTransform } from "motion/react";
 const items = [
   {
     id: 1,
-    title: "First Point of Contact ",
+    title: "Personal Branding",
     description:
-      "🚀 At CreatorLed, we know that the next big idea could come from anyone at any time. Although our focus is primarily Pre-Seed to Seed, we welcome companies of all stages and sizes. We’ll screen every submission to determine fit and next steps.",
+      "Your story is your biggest asset. We help founders shape their identity, build trust, and attract opportunities that open doors. In a world where attention matters, we ensure your name and work stand out, making you the face of your vision.",
   },
   {
     id: 2,
-    title: "Meeting 1 and 2",
+    title: "Community/Journey",
     description:
-      "✨ As a firm founded by and for creative visionaries, we want to get to know you beyond your pitch deck to ensure the vibes are immaculate We want to know your why — why you created this company, why your company is moving the needle, and why it’s something the world needs.",
+      "Entrepreneurship is tough, but you don’t have to do it alone. We’ve built a space that values struggles as much as success. A place where founders share, learn, and grow together—because real change happens when people push forward as a collective.",
   },
   {
     id: 3,
-    title: "Due diligence",
+    title: "We Act as a Co-Founder",
     description:
-      "🔎 We deeply respect how valuable your time is and the importance of moving quickly, which is why we have one of the most efficient due diligence processes in the industry. We perform our due diligence with a turnaround time, so you can move on if it’s a ‘no’ and get to work if it’s a ‘yes’!",
+      "We’re not just advisors or mentors—we work alongside you. From refining ideas to tackling roadblocks, we put in the work, helping you execute, adapt, and grow. Your vision is ours too, and we’ll build it with you.",
   },
   {
     id: 4,
-    title: "Term sheet signing",
+    title: "Structured Approach",
     description:
-      "📝 We work from straightforward, standard documents that minimize confusion and legal fees while promoting transparency.Once the term sheet is approved and signed, it’s time to pop the champagne! But once the bubbles have settled, we get straight to work to help your business succeed.",
+      "Dreams need direction. We don’t just tell you to figure it out—we shape the roadmap together, breaking big goals into clear, actionable steps. No more uncertainty—just a plan built for execution.",
+  },
+  {
+    id: 5,
+    title: "Focus",
+    description:
+      "Distractions are everywhere, and losing sight of your vision is easy. We ensure you stay aligned with what truly matters, helping you cut through the noise and move forward with precision and clarity.",
   },
 ];
 
@@ -46,7 +52,7 @@ const WeWorkFast = () => {
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["5vh", "160vh"] : ["5vh", "270vh"]
+    width < 768 ? ["5vh", "160vh"] : ["5vh", "340vh"]
   );
 
   useEffect(() => {
@@ -58,12 +64,12 @@ const WeWorkFast = () => {
       <div className="h-screen sticky top-[15vh] overflow-hidden">
         {/* Fixed title section */}
         <div className="absolute top-0 left-0 w-full z-10 p-8">
-          <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl text-center">
-            We work fast.
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-center">
+            Why 23V is more than just a Venture Capital ?
           </h1>
           <p className="font-base text-lg md:text-xl text-gray-400 text-center mt-4">
-            Our process takes between 2-4 weeks from initial conversation to
-            closing a deal.
+            Alongside providing funding, guidance and mentorship we set
+            ourselves apart by the followings:
           </p>
         </div>
 
@@ -91,13 +97,17 @@ const WeWorkFast = () => {
             </div>
           ))}
           <motion.div
-            className="bg-[#499478] absolute top-24 left-6 h-12 rounded-3xl"
-            style={{ width: progressbarWidth }}
+            className="absolute top-24 left-6 h-12 rounded-3xl"
+            style={{
+              width: progressbarWidth,
+              backgroundImage:
+                "linear-gradient(90deg, #499478 0%, #2f7d64 33%, #1a614d 66%, #0a4536 100%)",
+            }}
           ></motion.div>
         </motion.div>
       </div>
 
-      <div className="h-[300vh]" />
+      <div className="h-[350vh]" />
     </div>
   );
 };
