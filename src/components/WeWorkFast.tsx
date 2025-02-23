@@ -52,7 +52,7 @@ const WeWorkFast = () => {
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["5vh", "160vh"] : ["5vh", "340vh"]
+    width < 768 ? ["10vw", "460vw"] : ["5vh", "340vh"]
   );
 
   useEffect(() => {
@@ -81,13 +81,17 @@ const WeWorkFast = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className={`flex-shrink-0 w-screen md:w-[70vh] h-full p-8 flex items-start justify-start flex-col gap-10`}
+              className={`flex-shrink-0 w-screen md:w-[70vh] h-full p-8 flex items-start justify-start flex-col gap-10 `}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2
+                className={`md:text-4xl font-bold text-white ${
+                  item.id === 3 ? "text-2xl" : "text-3xl"
+                }`}
+              >
                 {item.title}
               </h2>
               {/* here */}
-              <span className="md:h-[3rem] md:w-full my-7 md:my-1"></span>
+              <span className="md:h-[3rem] md:w-full my-7 md:my-1 "></span>
               <p
                 className="text-gray-400 font-semibold text-base"
                 style={{ paddingRight: item.id === 4 ? 15 : 0 }}
