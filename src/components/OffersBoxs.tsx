@@ -125,13 +125,12 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
               {description}{" "}
               {index == 0 ? (
                 <span className="font-bold text-white text-2xl">
-                  {" "}
                   <br />
-                  April - September
+                  April - August
                 </span>
               ) : (
                 <span className="font-bold text-white text-2xl">
-                  October - March
+                  October - February
                 </span>
               )}
             </p>
