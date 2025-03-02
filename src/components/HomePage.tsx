@@ -15,9 +15,8 @@ const HomePage = () => {
         </h1>
         <p className="md:text-xl text-sm text-center font-semibold mb-8 italic md:w-[55%]">
           We bring entrepreneurs of all ages together, invest time and money in
-          them, and connect them with investors post season—If you’re an
-          entrepreneur, don’t worry about the age, click the form below and
-          apply ! Ideas are secondary, people are the first.
+          them, and connect them with investors post season Ideas are secondary,
+          people are the first.
         </p>
       </span>
       <Button

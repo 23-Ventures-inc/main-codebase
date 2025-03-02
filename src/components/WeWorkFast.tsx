@@ -55,6 +55,12 @@ const WeWorkFast = () => {
     width < 768 ? ["10vw", "460vw"] : ["5vh", "340vh"]
   );
 
+  // const progressBarBackground = useTransform(scrollYProgress, [0, 0.1, 1], [
+  //   "#5D8736",
+  //   "#5D8736",
+  //   "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#F4FFC3 60%,#1a614d 80%,#0a4536 100%)",
+  // ]);
+
   useEffect(() => {
     setWidth(window.screen.width);
   }, []);
@@ -90,8 +96,48 @@ const WeWorkFast = () => {
               >
                 {item.title}
               </h2>
-              {/* here */}
-              <span className="md:h-[3rem] md:w-full my-7 md:my-1 "></span>
+
+              {/* <span className="md:h-[3rem] md:w-full my-7 md:my-1 flex justify-start items-start">
+                {item.id === 1 ? (
+                  ""
+                ) : (
+                  <svg
+                    fill="white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 4 60"
+                    width="4"
+                    height="90"
+                  >
+                    <path
+                      d="M2 96V0"
+                      stroke="white"
+                      strokeWidth="4"
+                      strokeDasharray="8 8"
+                    ></path>
+                  </svg>
+                )}
+              </span> */}
+              <span className="md:h-[3rem] md:w-full my-7 md:my-1 relative">
+                {item.id === 1 ? null : (
+                  <span className="absolute z-30 -top-16 md:-top-10">
+                    <svg
+                      fill="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 4 80"
+                      width="5"
+                      height="90"
+                    >
+                      <path
+                        d="M2 96V0"
+                        stroke="white"
+                        strokeWidth="4"
+                        strokeDasharray="8 8"
+                      ></path>
+                    </svg>
+                  </span>
+                )}
+              </span>
+
               <p
                 className="text-gray-400 font-semibold text-base"
                 style={{ paddingRight: item.id === 4 ? 15 : 0 }}
@@ -100,12 +146,13 @@ const WeWorkFast = () => {
               </p>
             </div>
           ))}
+          {/* bar  */}
           <motion.div
             className="absolute top-24 left-6 h-12 rounded-3xl"
             style={{
               width: progressbarWidth,
               backgroundImage:
-                "linear-gradient(90deg, #499478 0%, #2f7d64 33%, #1a614d 66%, #0a4536 100%)",
+                "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#1a614d 80%,#0a4536 100%)",
             }}
           ></motion.div>
         </motion.div>
