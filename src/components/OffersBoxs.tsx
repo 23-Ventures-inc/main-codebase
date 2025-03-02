@@ -10,7 +10,7 @@ const data = [
     title: "Summer",
     descriptiopn: "20 Weeks Exclusive High Intensity program",
     points: [
-      { key: "Duration", point: "6 Months" },
+      { key: "Duration", point: "5 Months" },
       { key: "Location", point: "Remote" },
       { key: "Fee", point: "Free" },
       {
@@ -44,7 +44,7 @@ const data = [
     title: "Winter",
     descriptiopn: "20 Weeks Exclusive High Intensity program ",
     points: [
-      { key: "Duration", point: "6 Months" },
+      { key: "Duration", point: "5 Months" },
       { key: "Location", point: "Remote" },
       { key: "Fee", point: "Free" },
       {
