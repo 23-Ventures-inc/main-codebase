@@ -16,9 +16,9 @@ const data = [
       {
         key: "Funding",
         point:
-          "Secure upto 10,000 Dollars during the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
+          "Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
-      { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
+      { key: "Types", point: "AI Saas, Web3, Marketplace, SAAS, AR-VR" },
       {
         key: "Additionals",
         point:
@@ -31,12 +31,12 @@ const data = [
       {
         key: "Milestones (In 5 Months)",
         point:
-          "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
+          "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
         key: "What’s in it for you ?",
         point:
-          "Secure upto $10K  during the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -50,9 +50,9 @@ const data = [
       {
         key: "Funding",
         point:
-          "Secure upto 10,000 Dollars during the cohort, Get access to investment opportunities on demo day that help you scale your business faster post cohort",
+          "Get access to investment opportunities on demo day that help you scale your business faster post cohort",
       },
-      { key: "Types", point: "Agency, Saas,Marketplace, AI SAAS, Web3" },
+      { key: "Types", point: "AI Saas, Web3, Marketplace, SAAS, AR-VR" },
       {
         key: "Additionals",
         point:
@@ -65,12 +65,12 @@ const data = [
       {
         key: "Milestones (In 5 Months)",
         point:
-          "10,000 Dollars MRR (Agencies), 10,000 Users Monthly (Digital Softwares)",
+          "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
         key: "What’s in it for you ?",
         point:
-          "Secure upto $10K during the cohort, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -134,10 +134,6 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
                 </span>
               )}
             </p>
-            {/* <Button
-              text="Apply"
-              onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
-            /> */}
           </div>
 
           {/* Key Points Section */}
@@ -186,7 +182,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
           // }}
           target="_blank"
           href={
-            "https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+            "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
           }
           className=" w-[70%] mt-8 py-3 px-3 rounded-full flex justify-center items-center bg-white text-black font-bold mx-auto hover:text-white hover:bg-[#499478] text-3xl"
         >

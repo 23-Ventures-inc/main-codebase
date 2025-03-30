@@ -14,14 +14,14 @@ const HomePage = () => {
           Startups of <span className="text-color">tomorrow</span>
         </h1>
         <p className="md:text-xl text-sm text-center font-semibold mb-8 italic md:w-[55%]">
-          We bring entrepreneurs of all ages together, invest time and money in
-          them, and connect them with investors post season Ideas are secondary,
+          We bring early-stage entrepreneurs of all ages together, invest time, sprint capital in
+          them and connect them with investors post season; Ideas are secondary,
           people are the first.
         </p>
       </span>
       <Button
         text="Apply"
-        onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+        onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
       />
     </>
   );
