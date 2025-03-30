@@ -18,7 +18,7 @@ const links = [
   { text: "Niches", link: "/niches" },
   {
     text: "News",
-    link: "https://medium.com/@23ventureinc",
+    link: "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk",
   },
 ];
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           </span>
           <div className="md:block hidden">
             <Button
-              onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+              onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
               text="Apply"
             />
           </div>
@@ -88,7 +88,7 @@ const Navbar = () => {
             );
           })}
           <Button
-            onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+            onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
             text="Apply"
           />
         </motion.div>

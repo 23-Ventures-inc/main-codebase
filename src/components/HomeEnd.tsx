@@ -9,7 +9,7 @@ const HomeEnd = () => {
       </span>
       <Button
         text="Apply"
-        onClickUrl="https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit"
+        onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
       />
     </div>
   );

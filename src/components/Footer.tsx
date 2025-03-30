@@ -34,7 +34,7 @@ const links = [
   },
   {
     text: "Apply",
-    link: "https://docs.google.com/forms/d/1_uPNNuA10z2IBRlKzUHAmQwjoyDEjpCYHDt_t-IWKzQ/edit",
+    link: "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk",
   },
 ];
 

@@ -84,7 +84,7 @@ const HeroSection = () => {
           <span className="text-color">ideas</span>
         </h2>
         <p className="md:text-xl text-base text-center font-medium backdrop-blur-sm">
-          6-months Startup Program, 15 Early Stage founders, Building the next big thing
+          5-months Startup Program, Limited Early Stage founders, Building the next big thing
         </p>
       </span>
     </div>
