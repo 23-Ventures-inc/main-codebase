@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <>
       <div className="fixed top-4 w-screen h-[10vh] md:h-[10vh] flex justify-center items-center z-50">
-        <div className=" bg-[#111111] h-full w-[90%] md:w-[90%] lg:w-[50%] rounded-3xl flex justify-between md:justify-between px-8 md:px-20 items-center gap-4">
+        <div className=" bg-[#111111] h-full w-[90%] md:w-[90%] lg:w-[65%] rounded-3xl flex justify-between md:justify-between px-8 md:px-20 items-center gap-4">
           <Link href={"/"} className="h-12 w-12 rounded-full overflow-hidden">
             <Image
               src={"/logo.png"}
