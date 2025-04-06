@@ -5,7 +5,7 @@ const HomePage = () => {
     <>
       <span className="flex justify-center items-center gap-8 flex-col ">
         <span className="  text-center lg:w-auto rounded-full px-[3.5rem] py-[0.8rem] font-semibold text-sm lg:text-base text-white border-2 border-[#499478] ">
-          A new age Venture Studio
+          A new age Venture accelerator
         </span>
         <h1 className="md:text-7xl text-3xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
           <span className="md:text-3xl text-xl italic"> Here</span>
