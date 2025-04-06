@@ -22,7 +22,7 @@ const links = [
   },
   {
     text: "News",
-    link: "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk",
+    link: "https://medium.com/@23ventureinc",
   },
 ];
 
