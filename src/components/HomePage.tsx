@@ -1,4 +1,4 @@
-import Button from "./Button";
+// import Button from "./Button";
 
 const HomePage = () => {
   return (
@@ -19,10 +19,7 @@ const HomePage = () => {
           people are the first.
         </p>
       </span>
-      <Button
-        text="Apply"
-        onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
-      />
+   
     </>
   );
 };

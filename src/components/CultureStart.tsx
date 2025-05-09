@@ -11,10 +11,10 @@ const CultureStart = () => {
           dreams
         </h1>
       </span>
-      <Button
+      {/* <Button
         text="Apply"
-        onClickUrl="https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
-      />
+        onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
+      /> */}
     </>
   );
 };

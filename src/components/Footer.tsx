@@ -34,7 +34,7 @@ const links = [
   },
   {
     text: "Apply",
-    link: "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk",
+    link: "https://deformity.ai/d/0FQReup5wsCr",
   },
 ];
 

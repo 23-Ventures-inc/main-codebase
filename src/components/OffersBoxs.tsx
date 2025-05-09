@@ -176,7 +176,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
             ))}
           </motion.div>
         </motion.div>
-        <Link
+        {/* <Link
           // onClick={() => {
           //   setIsOpen((perv) => !perv);
           // }}
@@ -187,7 +187,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
           className=" w-[70%] mt-8 py-3 px-3 rounded-full flex justify-center items-center bg-white text-black font-bold mx-auto hover:text-white hover:bg-[#499478] text-3xl"
         >
           Apply
-        </Link>
+        </Link> */}
       </div>
     </>
   );
