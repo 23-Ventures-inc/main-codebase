@@ -152,7 +152,8 @@ const WeWorkFast = () => {
             style={{
               width: progressbarWidth,
               backgroundImage:
-                "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#1a614d 80%,#0a4536 100%)",
+                // "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#1a614d 80%,#0a4536 100%)",
+                "linear-gradient(90deg, #2b8762 0%, #52a07a 40%, #8fc29e 100%)",
             }}
           ></motion.div>
         </motion.div>
