@@ -58,7 +58,7 @@ const SmoothScroll = () => {
     return () => {
       lenis.destroy();
       cancelAnimationFrame(animationFrameId);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // ✅ Proper cleanup
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
