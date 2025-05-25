@@ -83,3 +83,57 @@ body {
   transform-origin: left;
   transform: scaleX(1);
 }
+
+/* Container for full-screen background */
+.intro-container {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bgFadeOut 0.5s ease-in-out forwards;
+  animation-delay: 3s; /* start immediately after text fade ends */
+}
+
+/* Rest stays the same */
+.zoom-text {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 900;
+  font-size: 8vw;
+  background: url("https://t4.ftcdn.net/jpg/02/47/62/97/240_F_247629704_vScFmnhhqjpRPAmlUlsVRLbMCoIXbenM.jpg");
+  background-size: 200%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bgZoomOut 2s ease forwards, textFadeOut 1s ease forwards;
+  animation-delay: 0s, 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bgZoomOut {
+  from {
+    background-size: 200%;
+  }
+  to {
+    background-size: 100%;
+  }
+}
+
+@keyframes textFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bgFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
