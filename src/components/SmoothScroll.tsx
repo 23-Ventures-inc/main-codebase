@@ -7,12 +7,12 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 const SmoothScroll = () => {
   useEffect(() => {
-    // Register GSAP ScrollTrigger plugin
+    // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Define a smooth, eased-out scroll curve
+    // Create Lenis instance
     const lenis = new Lenis({
-      duration: 1.2, // smoother experience (keep under 1.5s for UX)
+      duration: 1.2,
       easing: (t) => 1 - Math.pow(2, -10 * t), // easeOutExpo
       smooth: true,
       smoothTouch: true,
@@ -20,7 +20,7 @@ const SmoothScroll = () => {
       gestureOrientation: "vertical",
     });
 
-    // GSAP integration with Lenis
+    // Setup GSAP ScrollTrigger integration
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         if (value !== undefined) {
@@ -39,15 +39,14 @@ const SmoothScroll = () => {
       pinType: document.body.style.transform ? "transform" : "fixed",
     });
 
-    // Sync scroll updates
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Ensure everything is ready before triggering ScrollTrigger refresh
+    // Refresh ScrollTrigger slightly delayed
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 100); // slight delay helps avoid layout shifts
+    }, 100);
 
-    // Lenis animation frame loop
+    // RAF loop for Lenis
     let animationFrameId: number;
     const raf = (time: number) => {
       lenis.raf(time);
@@ -55,11 +54,11 @@ const SmoothScroll = () => {
     };
     animationFrameId = requestAnimationFrame(raf);
 
-    // Cleanup on unmount
+    // Cleanup
     return () => {
       lenis.destroy();
-      ScrollTrigger.kill();
       cancelAnimationFrame(animationFrameId);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // ✅ Proper cleanup
     };
   }, []);
 
