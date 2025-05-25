@@ -13,15 +13,21 @@ import WeWorkFast from "@/components/WeWorkFast";
 import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
-  const [showAnimation, setShowAnimation] = useState(true);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
+    // Only trigger on hard reload
+    const isHardReload =
+      window.performance?.navigation?.type === 1 || // legacy
+      performance.getEntriesByType("navigation")[0]?.type === "reload"; // modern
+
     const hasSeenAnimation = sessionStorage.getItem("hasSeenAnimation");
 
-    if (!hasSeenAnimation) {
+    if (isHardReload && !hasSeenAnimation) {
       setShowAnimation(true);
       sessionStorage.setItem("hasSeenAnimation", "true");
-      const timer = setTimeout(() => setShowAnimation(false), 3000); // now matches animation duration
+
+      const timer = setTimeout(() => setShowAnimation(false), 3500);
       return () => clearTimeout(timer);
     } else {
       setShowAnimation(false);

@@ -113,10 +113,10 @@ body {
 
 @keyframes bgZoomOut {
   from {
-    background-size: 200%;
+    background-size: 500%;
   }
   to {
-    background-size: 100%;
+    background-size: 99%;
   }
 }
 
