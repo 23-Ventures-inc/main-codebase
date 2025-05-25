@@ -13,23 +13,27 @@ import WeWorkFast from "@/components/WeWorkFast";
 import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
-  const [showAnimation, setShowAnimation] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(true);
 
   useEffect(() => {
-    // Only trigger on hard reload
-    const isHardReload =
-      window.performance?.navigation?.type === 1 || // legacy
-      performance.getEntriesByType("navigation")[0]?.type === "reload"; // modern
+    // Detect initial page load or reload
+    const navEntry = performance.getEntriesByType(
+      "navigation"
+    )[0] as PerformanceNavigationTiming;
 
-    const hasSeenAnimation = sessionStorage.getItem("hasSeenAnimation");
+    const isInitialLoadOrReload =
+      navEntry?.type === "navigate" || navEntry?.type === "reload";
 
-    if (isHardReload && !hasSeenAnimation) {
+    if (isInitialLoadOrReload) {
       setShowAnimation(true);
-      sessionStorage.setItem("hasSeenAnimation", "true");
 
-      const timer = setTimeout(() => setShowAnimation(false), 3500);
+      const timer = setTimeout(() => {
+        setShowAnimation(false);
+      }, 3500); // Match your animation duration
+
       return () => clearTimeout(timer);
     } else {
+      // Fallback: don't show animation on client-side redirects
       setShowAnimation(false);
     }
   }, []);
