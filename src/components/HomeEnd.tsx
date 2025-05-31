@@ -5,7 +5,6 @@ const HomeEnd = () => {
         Learn & Evolve, <br /> where every voice, success, <br /> and setback
         matters !
       </span>
-      
     </div>
   );
 };

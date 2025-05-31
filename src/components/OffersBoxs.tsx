@@ -1,7 +1,8 @@
 "use client";
 
 // import { useState } from "react";
-// import Button from "./Button";
+import Button from "./Button";
+import { useState } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
@@ -30,8 +31,7 @@ const data = [
       },
       {
         key: "Milestones (In 5 Months)",
-        point:
-          "Upto 10,000 Users Monthly (Digital Softwares)",
+        point: "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
         key: "What’s in it for you ?",
@@ -64,8 +64,7 @@ const data = [
       },
       {
         key: "Milestones (In 5 Months)",
-        point:
-          "Upto 10,000 Users Monthly (Digital Softwares)",
+        point: "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
         key: "What’s in it for you ?",
@@ -110,86 +109,123 @@ interface BoxesProps {
 }
 
 const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
-  // const [open, setIsOpen] = useState<boolean>(true);
+  const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
+    null
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoverPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setHoverPos(null);
+  };
 
   return (
-    <>
-      <div className="h-auto flex items-center justify-center p-4 flex-col gap-4 ">
-        <motion.div className="w-full max-w-xl boxesbg rounded-[32px] p-8 md:p-12 flex flex-col h-auto">
-          {/* Title Section */}
-          <div className="text-center mb-4">
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-200 mb-4">
-              {title}
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-8">
-              {description}{" "}
-              {index == 0 ? (
-                <span className="font-bold text-white text-2xl">
-                  <br />
-                  April - August
-                </span>
-              ) : (
-                <span className="font-bold text-white text-2xl">
-                  October - February
-                </span>
-              )}
-            </p>
-          </div>
-
-          {/* Key Points Section */}
+    <div className="h-auto flex items-center justify-center p-4 flex-col gap-4 ">
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative w-full rounded-[32px] p-10 flex flex-col h-auto
+          bg-black/20
+          backdrop-blur-md
+          border border-[#499478]/30
+          shadow-lg
+          overflow-hidden"
+      >
+        {/* Shiny circle effect */}
+        {hoverPos && (
           <motion.div
-            className={`space-y-8 `}
-            variants={{
-              open: {
-                visibility: "visible",
-                height: "auto",
-                opacity: 1,
-                transition: { duration: 0.5 },
-              },
-              close: {
-                visibility: "hidden",
-                height: 0,
-                opacity: 0,
-                transition: { duration: 0.5 },
-              },
+            className="pointer-events-none absolute rounded-full"
+            style={{
+              top: hoverPos.y - 75,
+              left: hoverPos.x - 75,
+              width: 150,
+              height: 150,
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
+              filter: "blur(30px)",
+              mixBlendMode: "screen",
+              opacity: 1,
             }}
-            exit={{
-              height: 0,
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+
+        {/* Title Section */}
+        <div className="text-center mb-4">
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-200 mb-4">
+            {title}
+          </h2>
+          <p className="text-lg md:text-xl text-gray-400 mb-8">
+            {description}{" "}
+            {index == 0 ? (
+              <span className="font-bold text-white text-2xl">
+                <br />
+                April - August
+              </span>
+            ) : (
+              <span className="font-bold text-white text-2xl">
+                October - February
+              </span>
+            )}
+          </p>
+        </div>
+
+        {/* Key Points Section */}
+        <motion.div
+          className={`space-y-8 `}
+          variants={{
+            open: {
+              visibility: "visible",
+              height: "auto",
+              opacity: 1,
+              transition: { duration: 0.5 },
+            },
+            close: {
               visibility: "hidden",
+              height: 0,
               opacity: 0,
               transition: { duration: 0.5 },
-            }}
-            // animate={open ? "open" : "close"}
-          >
-            {keyPoints.map(({ key, point }, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-t border-gray-800 pt-6"
-              >
-                <h3 className="text-gray-400 text-base md:text-lg w-full md:w-1/4">
-                  {key}
-                </h3>
-                <p className="text-gray-200 text-base md:text-lg font-medium w-full md:w-3/4">
-                  {point}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-        {/* <Link
-          // onClick={() => {
-          //   setIsOpen((perv) => !perv);
-          // }}
-          target="_blank"
-          href={
-            "https://airtable.com/appznq2oXOYJWyz0p/shrKNR84xiWQq9idk"
-          }
-          className=" w-[70%] mt-8 py-3 px-3 rounded-full flex justify-center items-center bg-white text-black font-bold mx-auto hover:text-white hover:bg-[#499478] text-3xl"
+            },
+          }}
+          exit={{
+            height: 0,
+            visibility: "hidden",
+            opacity: 0,
+            transition: { duration: 0.5 },
+          }}
         >
-          Apply
-        </Link> */}
-      </div>
-    </>
+          {keyPoints.map(({ key, point }, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-t border-gray-800 pt-6"
+            >
+              <h3 className="text-gray-400 text-base md:text-lg w-full md:w-1/4">
+                {key}
+              </h3>
+              <p className="text-gray-200 text-base md:text-lg font-medium w-full md:w-3/4">
+                {point}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Button Section */}
+        <div className="mt-8 flex justify-center">
+          <Button
+            text="Apply"
+            onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
+          />
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

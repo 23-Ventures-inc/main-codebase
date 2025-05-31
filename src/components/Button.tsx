@@ -8,14 +8,14 @@ interface ButtonProps {
 const Button = ({ text, onClickUrl }: ButtonProps) => {
   return (
     <div className="flex justify-center items-center">
-      <Link href={onClickUrl} passHref>
+      <Link href={onClickUrl}>
         <button
           type="button"
           className="
             font-sans flex justify-center gap-2 items-center shadow-xl 
             text-md sm:text-md md:text-md  
             text-gray-50 bg-transparent backdrop-blur-md font-semibold 
-            isolation-auto relative z-10 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-1.5 
+            isolation-auto relative z-10 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2
             overflow-hidden border-2 border-[#499478] rounded-full group
             before:absolute before:w-full before:aspect-square before:-left-full before:rounded-full before:bg-[#499478]
             before:transition-all before:duration-700 before:-z-10
@@ -28,7 +28,7 @@ const Button = ({ text, onClickUrl }: ButtonProps) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 19"
             className="
-              w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7  /* Responsive icon size */
+              w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7
               bg-gray-50 text-gray-800 
               group-hover:rotate-90 ease-linear duration-300 
               rounded-full border border-gray-700 group-hover:border-none 

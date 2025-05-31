@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { FaChevronDown } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion"; // I assume motion/react is framer-motion, if not pls clarify
+import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 
 const faqData = [
   {
@@ -64,63 +64,121 @@ const faqData = [
   },
 ];
 
-export default function FaqSection() {
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="w-full h-auto md:py-14">
-      <div className="max-w-[80%] mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+    <section className="w-full p-5 flex flex-col items-center ">
+      <div className="container">
+        {/* Fixed title section */}
+        <h1 className="font-bold text-white mb-5 text-4xl md:text-5xl lg:text-6xl text-center">
           Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          <AnimatePresence>
-            {faqData.map((faq, index) => (
-              <FaqItem
-                key={index}
-                question={faq.question}
-                answer={faq.answer}
-              />
-            ))}
-          </AnimatePresence>
+        </h1>
+        <p className="font-base text-lg md:text-xl mb-10 text-gray-400 text-center mt-4">
+          Answers to the most common questions about 23 Ventures.
+        </p>
+
+        <div className="accordion w-full" id="faqAccordion">
+          {faqData.map(({ question, answer }, i) => (
+            <div
+              key={i}
+              className="accordion-item p-2"
+              style={{
+                border: "1px solid  #424242",
+                borderRadius: 10,
+                marginBottom: 12,
+                overflow: "hidden",
+                boxShadow:
+                  openIndex === i ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
+              }}
+            >
+              <div className="flex flex-row items-center justify-between pr-5">
+                <h2 className="accordion-header" id={`heading${i}`}>
+                  <button
+                    className={`accordion-button ${
+                      openIndex === i ? "" : "collapsed"
+                    }`}
+                    onClick={() => toggle(i)}
+                    type="button"
+                    aria-expanded={openIndex === i}
+                    aria-controls={`collapse${i}`}
+                    style={{
+                      border: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 12,
+                      padding: "1rem 1.25rem",
+                      fontWeight: 600,
+                      fontSize: 18,
+                      color: "#fff",
+                      cursor: "pointer",
+                      outline: "none",
+                    }}
+                  >
+                    <FaQuestionCircle
+                      size={24}
+                      color="#6c757d"
+                      style={{ flexShrink: 0 }}
+                    />
+                    <span style={{ flexGrow: 1, textAlign: "left" }}>
+                      {question}
+                    </span>
+                  </button>
+                </h2>
+                <FaChevronDown
+                  className={`accordion-button ${
+                    openIndex === i ? "" : "collapsed"
+                  }`}
+                  onClick={() => toggle(i)}
+                  size={16}
+                  style={{
+                    transition: "transform 0.3s ease",
+                    transform:
+                      openIndex === i ? "rotate(180deg)" : "rotate(0deg)",
+                    color: "#6c757d",
+                    flexShrink: 0,
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+
+              <AnimatePresence initial={false}>
+                {openIndex === i && (
+                  <motion.div
+                    id={`collapse${i}`}
+                    aria-labelledby={`heading${i}`}
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { height: "auto", opacity: 1, marginTop: 0 },
+                      collapsed: { height: 0, opacity: 0, marginTop: -16 },
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div
+                      className="accordion-body"
+                      style={{
+                        padding: "1rem 1.25rem",
+                        color: "#fff",
+                        fontSize: 16,
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-interface FaqItemProps {
-  question: string;
-  answer: string;
-}
-
-function FaqItem({ question, answer }: FaqItemProps) {
-  const [open, setOpen] = useState<boolean>(false);
-
-  return (
-    <motion.div
-      className="rounded-lg overflow-hidden"
-      initial={false}
-      transition={{ duration: 0.3 }}
-      onClick={() => {
-        setOpen((perv) => !perv);
-      }}
-    >
-      <button className="flex justify-between items-center w-full p-4 text-left focus:outline-none">
-        <span className="font-semibold text-lg">{question}</span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <FaChevronDown className="w-5 h-5" />
-        </motion.span>
-      </button>
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <p className="p-4 text-gray-300">{answer}</p>
-      </motion.div>
-    </motion.div>
   );
 }

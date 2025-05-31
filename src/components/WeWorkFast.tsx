@@ -125,37 +125,30 @@ const WeWorkFast = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 4 80"
                       width="5"
-                      height="90"
+                      height="120"
                     >
-                      <path
-                        d="M2 96V0"
-                        stroke="white"
-                        strokeWidth="4"
-                        strokeDasharray="8 8"
-                      ></path>
+                      <path d="M2 96V0" stroke="white" strokeWidth="4"></path>
                     </svg>
                   </span>
                 )}
               </span>
 
               <p
-                className="text-gray-400 font-semibold text-base"
+                className="text-gray-400 ml-2 font-semibold text-base"
                 style={{ paddingRight: item.id === 4 ? 15 : 0 }}
               >
                 {item.description}
               </p>
             </div>
           ))}
-          {/* bar  */}
           <motion.div
             className="absolute top-24 left-6 h-12 rounded-3xl"
             style={{
               width: progressbarWidth,
               backgroundImage:
-                // "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#1a614d 80%,#0a4536 100%)",
-                "linear-gradient(90deg, #2b8762 0%, #52a07a 40%, #8fc29e 100%)",
+                "linear-gradient(90deg, #0f766e 0%, #159f96 20%, #38bdf8 40%, #6366f1 60%, #ec4899 80%, #f97316 100%)",
             }}
-          ></motion.div>
+          />
         </motion.div>
       </div>
 

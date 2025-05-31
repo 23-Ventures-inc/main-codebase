@@ -11,6 +11,7 @@ import GridBoxes from "@/components/GridBoxes";
 import New from "@/components/New";
 import WeWorkFast from "@/components/WeWorkFast";
 import FaqSection from "@/components/FaqSection";
+import VideoPage from "@/components/VideoPage";
 
 export default function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -46,7 +47,7 @@ export default function Home() {
 
       {!showAnimation && (
         <>
-          <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden">
+          <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
             <video
               src="/home.mp4"
               autoPlay
@@ -57,7 +58,7 @@ export default function Home() {
             />
             <HomePage />
           </div>
-
+          <VideoPage />
           <HeroSection />
           <OffersBoxs />
           <GridBoxes />

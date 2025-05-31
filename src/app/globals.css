@@ -27,10 +27,6 @@
   );
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .text-container {
   font-weight: bold;
   background: url("/c4.jpeg") no-repeat;
@@ -135,5 +131,24 @@ body {
   }
   to {
     opacity: 0;
+  }
+}
+
+:root {
+  --banner-height: 3rem; /* 48px */
+  --navbar-height: 4rem; /* 64px */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --banner-height: 3.5rem; /* 56px */
+    --navbar-height: 4.5rem; /* 72px */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --banner-height: 4rem; /* 64px */
+    --navbar-height: 5rem; /* 80px */
   }
 }
