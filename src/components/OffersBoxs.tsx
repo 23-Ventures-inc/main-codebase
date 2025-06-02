@@ -80,7 +80,7 @@ const OffersBoxs = () => {
       <span className="min-h-[20vh] md:text-6xl font-bold text-3xl w-full h-[20%] text-center flex justify-center items-center">
         We offer 2 seasons
       </span>
-      <div className="flex justify-center items-start gap-8 px-2 w-full min-h-[80vh] md:flex-row flex-col">
+      <div className="flex justify-between items-start w-full min-h-[80vh] md:flex-row flex-col px-8 gap-8">
         {data.map(({ descriptiopn, points, title }, index) => {
           return (
             <Boxes
@@ -125,7 +125,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
   };
 
   return (
-    <div className="h-auto flex items-center justify-center p-4 flex-col gap-4 ">
+    <div className="h-auto flex items-center justify-center m-auto flex-col gap-3 w-full md:w-1/2">
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
