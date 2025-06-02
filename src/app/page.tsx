@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import IntroAnimation from "@/components/IntroAnimation";
 import HomePage from "../components/HomePage";
@@ -15,6 +15,7 @@ import VideoPage from "@/components/VideoPage";
 
 export default function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     // Detect initial page load or reload
@@ -39,6 +40,23 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    // Safari autoplay fix: try to play video manually after animation ends
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          await videoRef.current.play();
+        }
+      } catch (error) {
+        console.warn("Autoplay failed:", error);
+      }
+    };
+
+    if (!showAnimation) {
+      playVideo();
+    }
+  }, [showAnimation]);
+
   return (
     <>
       <div className="relative">
@@ -46,7 +64,8 @@ export default function Home() {
         <AnimatePresence>
           {showAnimation && (
             <IntroAnimation
-              onAnimationComplete={() => setShowAnimation(false)}
+            // Removed onAnimationComplete here because your component doesn't accept it
+            // onAnimationComplete={() => setShowAnimation(false)}
             />
           )}
         </AnimatePresence>
@@ -55,11 +74,13 @@ export default function Home() {
         <div className={`${showAnimation ? "pointer-events-none" : ""}`}>
           <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
             <video
+              ref={videoRef} // <-- ref for manual playback control
               src="/home.mp4"
               autoPlay
               loop
-              muted
+              muted={true} // <-- explicitly boolean
               playsInline
+              preload="auto" // <-- help preload in Safari
               className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
             />
             <HomePage />
