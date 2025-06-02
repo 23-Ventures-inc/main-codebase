@@ -7,7 +7,6 @@ import Marquee from "react-fast-marquee";
 const imagesRow1 = [
   "/col15.jpg",
   "/col18.jpg",
-
   "/col21.jpg",
   "/col22.jpeg",
   "/col23.jpeg",
