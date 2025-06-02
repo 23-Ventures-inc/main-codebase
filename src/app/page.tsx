@@ -41,12 +41,18 @@ export default function Home() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {showAnimation && <IntroAnimation />}
-      </AnimatePresence>
+      <div className="relative">
+        {/* Animation overlay */}
+        <AnimatePresence>
+          {showAnimation && (
+            <IntroAnimation
+              onAnimationComplete={() => setShowAnimation(false)}
+            />
+          )}
+        </AnimatePresence>
 
-      {!showAnimation && (
-        <>
+        {/* Main content rendered immediately */}
+        <div className={`${showAnimation ? "pointer-events-none" : ""}`}>
           <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
             <video
               src="/home.mp4"
@@ -68,8 +74,8 @@ export default function Home() {
             <FaqSection />
           </div>
           <HomeEnd />
-        </>
-      )}
+        </div>
+      </div>
     </>
   );
 }

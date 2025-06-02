@@ -16,7 +16,7 @@ const IntroAnimation = () => {
 
   return (
     <motion.div
-      className="fixed intro-container inset-0 z-[999] bg-black flex flex-col items-center justify-center"
+      className=" intro-container fixed top-0 left-0 w-full h-full z-[999] bg-black flex flex-col items-center justify-center"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       exit={{ opacity: 0 }}
