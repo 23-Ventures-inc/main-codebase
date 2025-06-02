@@ -74,7 +74,6 @@ export default function FAQ() {
   return (
     <section className="w-full p-5 flex flex-col items-center ">
       <div className="container">
-        {/* Fixed title section */}
         <h1 className="font-bold text-white mb-5 text-4xl md:text-5xl lg:text-6xl text-center">
           Frequently Asked Questions
         </h1>
@@ -87,6 +86,7 @@ export default function FAQ() {
             <div
               key={i}
               className="accordion-item p-2"
+              onClick={() => toggle(i)} // 🔁 Entire row is clickable
               style={{
                 border: "1px solid  #424242",
                 borderRadius: 10,
@@ -94,54 +94,26 @@ export default function FAQ() {
                 overflow: "hidden",
                 boxShadow:
                   openIndex === i ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
+                cursor: "pointer",
               }}
             >
               <div className="flex flex-row items-center justify-between pr-5">
-                <h2 className="accordion-header" id={`heading${i}`}>
-                  <button
-                    className={`accordion-button ${
-                      openIndex === i ? "" : "collapsed"
-                    }`}
-                    onClick={() => toggle(i)}
-                    type="button"
-                    aria-expanded={openIndex === i}
-                    aria-controls={`collapse${i}`}
-                    style={{
-                      border: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 12,
-                      padding: "1rem 1.25rem",
-                      fontWeight: 600,
-                      fontSize: 18,
-                      color: "#fff",
-                      cursor: "pointer",
-                      outline: "none",
-                    }}
-                  >
-                    <FaQuestionCircle
-                      size={24}
-                      color="#6c757d"
-                      style={{ flexShrink: 0 }}
-                    />
-                    <span style={{ flexGrow: 1, textAlign: "left" }}>
-                      {question}
-                    </span>
-                  </button>
-                </h2>
+                <div
+                  className="flex items-center gap-3 pl-5 py-4"
+                  style={{ color: "#fff", fontWeight: 600, fontSize: 18 }}
+                >
+                  <FaQuestionCircle size={24} color="#6c757d" />
+                  <span>{question}</span>
+                </div>
+
                 <FaChevronDown
                   className={`accordion-button ${
-                    openIndex === i ? "" : "collapsed"
+                    openIndex === i ? "rotate-180" : ""
                   }`}
-                  onClick={() => toggle(i)}
                   size={16}
                   style={{
                     transition: "transform 0.3s ease",
-                    transform:
-                      openIndex === i ? "rotate(180deg)" : "rotate(0deg)",
                     color: "#6c757d",
-                    flexShrink: 0,
-                    cursor: "pointer",
                   }}
                 />
               </div>
@@ -149,15 +121,10 @@ export default function FAQ() {
               <AnimatePresence initial={false}>
                 {openIndex === i && (
                   <motion.div
-                    id={`collapse${i}`}
-                    aria-labelledby={`heading${i}`}
-                    initial="collapsed"
-                    animate="open"
-                    exit="collapsed"
-                    variants={{
-                      open: { height: "auto", opacity: 1, marginTop: 0 },
-                      collapsed: { height: 0, opacity: 0, marginTop: -16 },
-                    }}
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     style={{ overflow: "hidden" }}
                   >
