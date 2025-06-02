@@ -1,4 +1,4 @@
-echo '{
+{
   "version": 2,
   "builds": [
     {
@@ -8,4 +8,4 @@ echo '{
   ],
   "installCommand": "pnpm install",
   "buildCommand": "pnpm run build"
-}' > vercel.json
+}
