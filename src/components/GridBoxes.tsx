@@ -11,7 +11,7 @@ const features = [
     title: "Milestones Tracking",
     description:
       "We'll help you stay on track by setting and tracking key milestones over 20 weeks, making sure you're always moving forward.",
-    imgUrl: "/col14.jpg",
+    imgUrl: "/col2.jpg",
   },
   {
     title: "Quick Investments and Demo Day",

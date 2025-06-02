@@ -18,7 +18,6 @@ const imagesRow1 = [
   "/img3.png",
 ];
 const imagesRow3 = [
-  "/col20.jpg",
   "/col5.jpg",
   "/col6.jpg",
   "/col7.png",
