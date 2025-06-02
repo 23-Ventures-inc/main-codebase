@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // I assume motion/react is framer-motion, if not pls clarify
+import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 
 const faqData = [
@@ -65,9 +65,9 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index) => {
+  const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 

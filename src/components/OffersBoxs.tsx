@@ -4,7 +4,6 @@
 import Button from "./Button";
 import { useState } from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 
 const data = [
   {
