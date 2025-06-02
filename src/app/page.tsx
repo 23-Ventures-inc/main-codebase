@@ -75,14 +75,18 @@ export default function Home() {
           <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
             <video
               ref={videoRef} // <-- ref for manual playback control
-              src="/home.mp4"
               autoPlay
               loop
               muted={true} // <-- explicitly boolean
               playsInline
               preload="auto" // <-- help preload in Safari
               className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
-            />
+            >
+              <source src="/home.mp4" type="video/mp4" />
+              <source src="/home.webm" type="video/webm" />
+              <source src="/home.ogv" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
             <HomePage />
           </div>
           <VideoPage />
