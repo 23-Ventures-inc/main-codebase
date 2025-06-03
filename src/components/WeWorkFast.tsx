@@ -34,6 +34,12 @@ const items = [
     description:
       "Distractions are everywhere, and losing sight of your vision is easy. We ensure you stay aligned with what truly matters, helping you cut through the noise and move forward with precision and clarity.",
   },
+  {
+    id: 6,
+    title: "Distribution",
+    description:
+      "Ideas alone aren’t enough, they need to move. We make that happen through our alumni network, the right mentors, proven companies, and founder-to-founder conversations. Community isn’t just support, it’s your launchpad. The right connections. At the right time. Where it counts from the exclusive people.",
+  },
 ];
 
 const WeWorkFast = () => {
@@ -47,19 +53,15 @@ const WeWorkFast = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["0%", "-90%"] : ["0%", "-85%"]
+    width < 768 ? ["0%", "-90%"] : ["0%", "-92%"]
   );
+
+  // Adjust the progress bar width for smaller screens
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["10vw", "460vw"] : ["5vh", "340vh"]
+    width < 768 ? ["10vw", "500vw"] : ["5vh", "400vh"] // Adjusted the max width for smaller screens to fit properly
   );
-
-  // const progressBarBackground = useTransform(scrollYProgress, [0, 0.1, 1], [
-  //   "#5D8736",
-  //   "#5D8736",
-  //   "linear-gradient(90deg,#5D8736 0%,#809D3C 20%,#A9C46C 40%,#F4FFC3 60%,#1a614d 80%,#0a4536 100%)",
-  // ]);
 
   useEffect(() => {
     setWidth(window.screen.width);
@@ -97,26 +99,6 @@ const WeWorkFast = () => {
                 {item.title}
               </h2>
 
-              {/* <span className="md:h-[3rem] md:w-full my-7 md:my-1 flex justify-start items-start">
-                {item.id === 1 ? (
-                  ""
-                ) : (
-                  <svg
-                    fill="white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 4 60"
-                    width="4"
-                    height="90"
-                  >
-                    <path
-                      d="M2 96V0"
-                      stroke="white"
-                      strokeWidth="4"
-                      strokeDasharray="8 8"
-                    ></path>
-                  </svg>
-                )}
-              </span> */}
               <span className="md:h-[3rem] md:w-full my-7 md:my-1 relative">
                 {item.id === 1 ? null : (
                   <span className="absolute z-30 -top-16 md:-top-10">
