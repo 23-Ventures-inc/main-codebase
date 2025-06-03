@@ -71,43 +71,43 @@ const Page = () => {
         {/* Advisors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-16">
           {advisors.map((advisor, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div
+              key={index}
+              className="flex flex-col items-center border border-[#499478]/30 p-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
               {/* Image with Shape Background */}
-              <div className="relative w-64 h-64 mb-6 flex justify-center items-center">
-                {/* here  */}
-                {/* <div
-                  className="absolute inset-0 rounded-full transform rotate-12 translate-x-2"
-                  style={{ backgroundColor: "#499478" }}
-                ></div> */}
-                <div className="flex justify-center items-center overflow-hidden rounded-full w-full h-full">
-                  <Image
-                    src={advisor.img || "/placeholder.svg"}
-                    alt={advisor.name}
-                    width={500}
-                    height={500}
-                    className="relative z-10 w-full h-full object-cover "
-                  />
-                </div>
+              <div className="relative w-48 h-48 mb-6 flex justify-center items-center rounded-full overflow-hidden  shadow-xl">
+                <Image
+                  src={advisor.img || "/placeholder.svg"}
+                  alt={advisor.name}
+                  width={500}
+                  height={500}
+                  className="object-cover"
+                />
               </div>
 
               {/* Name and Role */}
-              <h3 className="text-4xl md:text-5xl mb-1 text-color font-bold">
+              <h3 className="text-3xl md:text-5xl font-bold text-color mb-1 text-center">
                 {advisor.name}
               </h3>
-              <p className="text-lg md:text-2xl mb-2">{advisor.role}</p>
+              <p className="text-lg md:text-xl mb-2 text-gray-400">
+                {advisor.role}
+              </p>
 
               {/* LinkedIn Icon */}
               <Link
                 href={advisor.link}
-                className="mb-4"
+                className="text-lg text-blue-500 transition-all duration-200 hover:text-blue-600 mb-4"
                 aria-label={`${advisor.name}'s LinkedIn profile`}
                 target="_blank"
               >
-                <Linkedin size={20} />
+                <Linkedin size={24} />
               </Link>
 
               {/* Profile Text */}
-              <p className="text-sm text-center max-w-xs">{advisor.profile}</p>
+              <p className="text-sm md:text-base text-gray-300 text-center max-w-xs">
+                {advisor.profile}
+              </p>
             </div>
           ))}
         </div>
