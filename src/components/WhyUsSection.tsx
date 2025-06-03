@@ -16,7 +16,7 @@ const WhyUsSection = () => {
         {data.map((text, index) => (
           <span
             key={index}
-            className="h-[100%] w-[100%] rounded-3xl bg-cover bg-center bg-no-repeat text-xl md:text-3xl font-bold text-white flex items-center justify-center px-12  p-8"
+            className="h-[100%] w-[100%] border border-left border-[#499478]/30 rounded-3xl text-xl md:text-3xl font-light text-gray-200 flex items-center justify-center px-12 p-8"
           >
             {text}
           </span>

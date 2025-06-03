@@ -39,7 +39,8 @@
 
 .text-container2 {
   font-weight: bold;
-  background: url("/c2.webp") no-repeat;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7xaJ3b6X4sDxjRJs8iksFACAI2yj11SP8oQ&s")
+    no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
