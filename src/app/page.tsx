@@ -1,4 +1,4 @@
-"use client";
+"use client"; // <-- Make sure the component is treated as a client component
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -22,29 +22,25 @@ export default function Home() {
     const navEntry = performance.getEntriesByType(
       "navigation"
     )[0] as PerformanceNavigationTiming;
-
     const isInitialLoadOrReload =
       navEntry?.type === "navigate" || navEntry?.type === "reload";
 
     if (isInitialLoadOrReload) {
       setShowAnimation(true);
-
       const timer = setTimeout(() => {
         setShowAnimation(false);
-      }, 3500); // Match your animation duration
-
+      }, 3500); // Match your animation duration (3.5 seconds)
       return () => clearTimeout(timer);
     } else {
-      // Fallback: don't show animation on client-side redirects
-      setShowAnimation(false);
+      setShowAnimation(false); // Don't show animation on client-side redirects
     }
   }, []);
 
   useEffect(() => {
-    // Safari autoplay fix: try to play video manually after animation ends
     const playVideo = async () => {
       try {
         if (videoRef.current) {
+          // Play the video after the intro animation ends
           await videoRef.current.play();
         }
       } catch (error) {
@@ -53,9 +49,14 @@ export default function Home() {
     };
 
     if (!showAnimation) {
+      // When animation ends, trigger the video to play
       playVideo();
     }
   }, [showAnimation]);
+
+  const handleAnimationComplete = () => {
+    setShowAnimation(false); // Hide animation and trigger video
+  };
 
   return (
     <>
@@ -63,10 +64,7 @@ export default function Home() {
         {/* Animation overlay */}
         <AnimatePresence>
           {showAnimation && (
-            <IntroAnimation
-            // Removed onAnimationComplete here because your component doesn't accept it
-            // onAnimationComplete={() => setShowAnimation(false)}
-            />
+            <IntroAnimation onAnimationComplete={handleAnimationComplete} />
           )}
         </AnimatePresence>
 
@@ -75,11 +73,10 @@ export default function Home() {
           <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
             <video
               ref={videoRef} // <-- ref for manual playback control
-              autoPlay
               loop
-              muted={true} // <-- explicitly boolean
+              muted={true} // <-- Explicitly boolean to ensure mute
               playsInline
-              preload="auto" // <-- help preload in Safari
+              preload="auto" // <-- Help preload in Safari
               className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
             >
               <source src="/home.mp4" type="video/mp4" />
