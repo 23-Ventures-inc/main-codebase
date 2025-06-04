@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 const advisors = [
   {
@@ -81,86 +82,90 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full min-h-screen text-white py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
-          <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
-            Our <span className="text-color"> Advisors </span>
-          </h1>
-          <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%]">
-            Our advisory team consists of serial entrepreneurs, experienced
-            operators and seasoned investors.
-          </p>
-        </div>
+    <>
+      <Navbar />
 
-        {/* Advisors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-16">
-          {advisors.map((advisor, index) => (
-            <div
-              key={index}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              onMouseLeave={handleMouseLeave}
-              className="relative flex flex-col items-center border border-[#499478]/30 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:scale-[1.02] backdrop-blur-md overflow-hidden"
-            >
-              {/* Hover glow circle */}
-              {hoveredCard === index && hoverPos && (
-                <motion.div
-                  className="pointer-events-none absolute rounded-full"
-                  style={{
-                    top: hoverPos.y - 75,
-                    left: hoverPos.x - 75,
-                    width: 150,
-                    height: 150,
-                    background:
-                      "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
-                    filter: "blur(30px)",
-                    mixBlendMode: "screen",
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-              )}
+      <div className="w-full min-h-screen text-white py-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header Section */}
+          <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
+            <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
+              Our <span className="text-color"> Advisors </span>
+            </h1>
+            <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%]">
+              Our advisory team consists of serial entrepreneurs, experienced
+              operators and seasoned investors.
+            </p>
+          </div>
 
-              {/* Image */}
-              <div className="relative w-48 h-48 mb-6 flex justify-center items-center rounded-full overflow-hidden shadow-xl">
-                <Image
-                  src={advisor.img || "/placeholder.svg"}
-                  alt={advisor.name}
-                  width={500}
-                  height={500}
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Name & Role */}
-              <h3 className="text-3xl md:text-5xl font-bold text-color mb-1 text-center">
-                {advisor.name}
-              </h3>
-              <p className="text-lg md:text-xl mb-2 text-gray-400">
-                {advisor.role}
-              </p>
-
-              {/* LinkedIn */}
-              <Link
-                href={advisor.link}
-                className="text-lg text-white transition-all duration-200  mb-4"
-                target="_blank"
-                aria-label={`${advisor.name}'s LinkedIn profile`}
+          {/* Advisors Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-16">
+            {advisors.map((advisor, index) => (
+              <div
+                key={index}
+                onMouseMove={(e) => handleMouseMove(e, index)}
+                onMouseLeave={handleMouseLeave}
+                className="relative flex flex-col items-center border border-[#499478]/30 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:scale-[1.02] backdrop-blur-md overflow-hidden"
               >
-                <Linkedin size={24} />
-              </Link>
+                {/* Hover glow circle */}
+                {hoveredCard === index && hoverPos && (
+                  <motion.div
+                    className="pointer-events-none absolute rounded-full"
+                    style={{
+                      top: hoverPos.y - 75,
+                      left: hoverPos.x - 75,
+                      width: 150,
+                      height: 150,
+                      background:
+                        "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
+                      filter: "blur(30px)",
+                      mixBlendMode: "screen",
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
+                )}
 
-              {/* Profile */}
-              <p className="text-sm md:text-base text-gray-300 text-center max-w-xs">
-                {advisor.profile}
-              </p>
-            </div>
-          ))}
+                {/* Image */}
+                <div className="relative w-48 h-48 mb-6 flex justify-center items-center rounded-full overflow-hidden shadow-xl">
+                  <Image
+                    src={advisor.img || "/placeholder.svg"}
+                    alt={advisor.name}
+                    width={500}
+                    height={500}
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Name & Role */}
+                <h3 className="text-3xl md:text-5xl font-bold text-color mb-1 text-center">
+                  {advisor.name}
+                </h3>
+                <p className="text-lg md:text-xl mb-2 text-gray-400">
+                  {advisor.role}
+                </p>
+
+                {/* LinkedIn */}
+                <Link
+                  href={advisor.link}
+                  className="text-lg text-white transition-all duration-200  mb-4"
+                  target="_blank"
+                  aria-label={`${advisor.name}'s LinkedIn profile`}
+                >
+                  <Linkedin size={24} />
+                </Link>
+
+                {/* Profile */}
+                <p className="text-sm md:text-base text-gray-300 text-center max-w-xs">
+                  {advisor.profile}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

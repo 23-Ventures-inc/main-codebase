@@ -12,6 +12,7 @@ import New from "@/components/New";
 import WeWorkFast from "@/components/WeWorkFast";
 import FaqSection from "@/components/FaqSection";
 import VideoPage from "@/components/VideoPage";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -68,10 +69,12 @@ export default function Home() {
         {/* Content only rendered after intro ends */}
         {!showAnimation && (
           <div className="relative min-h-screen w-full">
+            <Navbar />
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="pointer-events-auto"
             >
               <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">

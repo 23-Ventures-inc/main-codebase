@@ -7,10 +7,12 @@ import ProcessPage from "@/components/ProcessPage";
 import { ProgressScroll } from "@/components/ProgressScroll";
 import WhatUGiveSection from "@/components/WhatUGiveSection";
 import WhyUsSection from "@/components/WhyUsSection";
+import Navbar from "@/components/Navbar";
 
 const page = () => {
   return (
     <>
+      <Navbar />
       <ProcessPage />
       <div className="relative w-full min-h-screen h-auto flex justify-center items-center  py-10 flex-col">
         <ProgressScroll />
