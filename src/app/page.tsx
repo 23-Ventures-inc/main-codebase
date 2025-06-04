@@ -1,7 +1,7 @@
-"use client"; // <-- Make sure the component is treated as a client component
+"use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import IntroAnimation from "@/components/IntroAnimation";
 import HomePage from "../components/HomePage";
 import HeroSection from "@/components/HeroSection";
@@ -18,7 +18,6 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Detect initial page load or reload
     const navEntry = performance.getEntriesByType(
       "navigation"
     )[0] as PerformanceNavigationTiming;
@@ -29,10 +28,10 @@ export default function Home() {
       setShowAnimation(true);
       const timer = setTimeout(() => {
         setShowAnimation(false);
-      }, 3500); // Match your animation duration (3.5 seconds)
+      }, 3500);
       return () => clearTimeout(timer);
     } else {
-      setShowAnimation(false); // Don't show animation on client-side redirects
+      setShowAnimation(false);
     }
   }, []);
 
@@ -40,7 +39,6 @@ export default function Home() {
     const playVideo = async () => {
       try {
         if (videoRef.current) {
-          // Play the video after the intro animation ends
           await videoRef.current.play();
         }
       } catch (error) {
@@ -49,53 +47,67 @@ export default function Home() {
     };
 
     if (!showAnimation) {
-      // When animation ends, trigger the video to play
       playVideo();
     }
   }, [showAnimation]);
 
   const handleAnimationComplete = () => {
-    setShowAnimation(false); // Hide animation and trigger video
+    setShowAnimation(false);
   };
 
   return (
     <>
       <div className="relative">
-        {/* Animation overlay */}
+        {/* Intro Animation */}
         <AnimatePresence>
           {showAnimation && (
             <IntroAnimation onAnimationComplete={handleAnimationComplete} />
           )}
         </AnimatePresence>
 
-        {/* Main content rendered immediately */}
-        <div className={`${showAnimation ? "pointer-events-none" : ""}`}>
-          <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
-            <video
-              ref={videoRef} // <-- ref for manual playback control
-              loop
-              muted={true} // <-- Explicitly boolean to ensure mute
-              playsInline
-              preload="auto" // <-- Help preload in Safari
-              className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
-            >
-              <source src="/home.mp4" type="video/mp4" />
-              <source src="/home.webm" type="video/webm" />
-              <source src="/home.ogv" type="video/ogg" />
-              Your browser does not support the video tag.
-            </video>
-            <HomePage />
-          </div>
-          <VideoPage />
-          <HeroSection />
-          <OffersBoxs />
-          <GridBoxes />
-          <New />
-          <WeWorkFast />
-          <div className="w-full h-auto flex justify-center items-center py-14">
-            <FaqSection />
-          </div>
-          <HomeEnd />
+        {/* Content Wrapper with fallback height to prevent layout flicker */}
+        <div className="relative min-h-screen w-full">
+          <AnimatePresence>
+            {!showAnimation && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className={`${showAnimation ? "pointer-events-none" : ""}`}
+              >
+                <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
+                  <video
+                    ref={videoRef}
+                    loop
+                    muted={true}
+                    playsInline
+                    preload="auto"
+                    className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
+                  >
+                    <source src="/home.mp4" type="video/mp4" />
+                    <source src="/home.webm" type="video/webm" />
+                    <source src="/home.ogv" type="video/ogg" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <HomePage />
+                </div>
+
+                <VideoPage />
+                <HeroSection />
+                <OffersBoxs />
+                <GridBoxes />
+                <New />
+                <WeWorkFast />
+                <div className="w-full h-auto flex justify-center items-center py-14">
+                  <FaqSection />
+                </div>
+                <HomeEnd />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Layout placeholder during intro to prevent footer jump */}
+          {showAnimation && <div className="invisible h-[4000px] w-full" />}
         </div>
       </div>
     </>
