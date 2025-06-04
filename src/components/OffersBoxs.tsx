@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const data = [
   {
     title: "Summer",
-    descriptiopn: "20 Weeks Exclusive High Intensity program",
+    description: "20 Weeks Exclusive High Intensity program",
     points: [
       { key: "Duration", point: "5 Months" },
       { key: "Location", point: "Remote" },
@@ -22,7 +22,7 @@ const data = [
       {
         key: "Additionals",
         point:
-          "Experience, community, culture, KPI’s, Strategize and planning, process and systems",
+          "Experience, community, culture, KPI's, Strategize and planning, process and systems",
       },
       {
         key: "Equity Dilution",
@@ -33,15 +33,15 @@ const data = [
         point: "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
-        key: "What’s in it for you ?",
+        key: "What's in it for you ?",
         point:
-          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder's community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
   {
     title: "Winter",
-    descriptiopn: "20 Weeks Exclusive High Intensity program ",
+    description: "20 Weeks Exclusive High Intensity program ",
     points: [
       { key: "Duration", point: "5 Months" },
       { key: "Location", point: "Remote" },
@@ -55,7 +55,7 @@ const data = [
       {
         key: "Additionals",
         point:
-          "Experience, community, culture, KPI’s, Strategize and planning, process and systems",
+          "Experience, community, culture, KPI's, Strategize and planning, process and systems",
       },
       {
         key: "Equity Dilution",
@@ -66,9 +66,9 @@ const data = [
         point: "Upto 10,000 Users Monthly (Digital Softwares)",
       },
       {
-        key: "What’s in it for you ?",
+        key: "What's in it for you ?",
         point:
-          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder’s community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
+          "Personalized mentorship, bi-weekly workshops, hands on guidance, hit milestones, validate traction, be a part of founder's community, connect with investors post-Cohort & build sustainable long term successfull businesses.",
       },
     ],
   },
@@ -76,22 +76,20 @@ const data = [
 
 const OffersBoxs = () => {
   return (
-    <div className="relative w-full h-auto overflow-hidden flex justify-center items-center flex-col gap-4">
+    <div className="relative w-full h-auto overflow-hidden grid place-items-center gap-4">
       <span className="min-h-[20vh] md:text-6xl font-bold text-3xl w-full h-[20%] text-center flex justify-center items-center">
         We offer 2 seasons
       </span>
-      <div className="flex justify-center items-center w-full min-h-[80vh] md:flex-row flex-col px-8 gap-8">
-        {data.map(({ descriptiopn, points, title }, index) => {
-          return (
-            <Boxes
-              key={index}
-              description={descriptiopn}
-              keyPoints={points}
-              title={title}
-              index={index}
-            />
-          );
-        })}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[3.5vw] w-full max-w-[1600px] px-[3.5vw] mx-auto min-h-[80vh]">
+        {data.map(({ description, points, title }, index) => (
+          <Boxes
+            key={index}
+            description={description}
+            keyPoints={points}
+            title={title}
+            index={index}
+          />
+        ))}
       </div>
     </div>
   );

@@ -58,7 +58,7 @@ const WhatUGiveSection = () => {
             {keysPoints.map((text, idx) => (
               <span
                 key={idx}
-                className="rounded-full px-4 py-2 text-xl backdrop-blur-sm inline-flex items-center  font-bold boxesbg text-center"
+                className="rounded-full px-5 py-2.5 text-lg md:text-xl font-semibold text-white bg-black/30 backdrop-blur-md border border-[#49947840] shadow-[0_0_10px_#49947840] transition-all duration-300 ease-in-out hover:border-[#499478] hover:shadow-[0_0_20px_#499478]"
               >
                 {text}
               </span>
