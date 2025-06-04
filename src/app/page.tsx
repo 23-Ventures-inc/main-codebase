@@ -65,50 +65,47 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* Content Wrapper with fallback height to prevent layout flicker */}
-        <div className="relative min-h-screen w-full">
-          <AnimatePresence>
-            {!showAnimation && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className={`${showAnimation ? "pointer-events-none" : ""}`}
-              >
-                <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
-                  <video
-                    ref={videoRef}
-                    loop
-                    muted={true}
-                    playsInline
-                    preload="auto"
-                    className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
-                  >
-                    <source src="/home.mp4" type="video/mp4" />
-                    <source src="/home.webm" type="video/webm" />
-                    <source src="/home.ogv" type="video/ogg" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <HomePage />
-                </div>
+        {/* Content only rendered after intro ends */}
+        {!showAnimation && (
+          <div className="relative min-h-screen w-full">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="pointer-events-auto"
+            >
+              <div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden pt-12">
+                <video
+                  ref={videoRef}
+                  loop
+                  muted={true}
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
+                >
+                  <source src="/home.mp4" type="video/mp4" />
+                  <source src="/home.webm" type="video/webm" />
+                  <source src="/home.ogv" type="video/ogg" />
+                  Your browser does not support the video tag.
+                </video>
+                <HomePage />
+              </div>
 
-                <VideoPage />
-                <HeroSection />
-                <OffersBoxs />
-                <GridBoxes />
-                <New />
-                <WeWorkFast />
-                <div className="w-full h-auto flex justify-center items-center py-14">
-                  <FaqSection />
-                </div>
-                <HomeEnd />
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Layout placeholder during intro to prevent footer jump */}
-          {showAnimation && <div className="invisible h-[4000px] w-full" />}
-        </div>
+              <VideoPage />
+              <HeroSection />
+              <OffersBoxs />
+              <GridBoxes />
+              <New />
+              <WeWorkFast />
+              <div className="w-full h-auto flex justify-center items-center py-14">
+                <FaqSection />
+              </div>
+              <HomeEnd />
+            </motion.div>
+          </div>
+        )}
+        {/* Layout placeholder during intro to prevent footer jump */}
+        {showAnimation && <div className="invisible h-[4000px] w-full" />}
       </div>
     </>
   );
