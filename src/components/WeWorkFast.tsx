@@ -14,19 +14,19 @@ const items = [
     id: 2,
     title: "Community/Journey",
     description:
-      "Entrepreneurship is tough, but you don’t have to do it alone. We’ve built a space that values struggles as much as success. A place where founders share, learn, and grow together—because real change happens when people push forward as a collective.",
+      "Entrepreneurship is tough, but you don't have to do it alone. We've built a space that values struggles as much as success. A place where founders share, learn, and grow together—because real change happens when people push forward as a collective.",
   },
   {
     id: 3,
     title: "We Act as a Co-Founder",
     description:
-      "We’re not just advisors or mentors—we work alongside you. From refining ideas to tackling roadblocks, we put in the work, helping you execute, adapt, and grow. Your vision is ours too, and we’ll build it with you.",
+      "We're not just advisors or mentors—we work alongside you. From refining ideas to tackling roadblocks, we put in the work, helping you execute, adapt, and grow. Your vision is ours too, and we'll build it with you.",
   },
   {
     id: 4,
     title: "Structured Approach",
     description:
-      "Dreams need direction. We don’t just tell you to figure it out—we shape the roadmap together, breaking big goals into clear, actionable steps. No more uncertainty—just a plan built for execution.",
+      "Dreams need direction. We don't just tell you to figure it out—we shape the roadmap together, breaking big goals into clear, actionable steps. No more uncertainty—just a plan built for execution.",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const items = [
     id: 6,
     title: "Distribution",
     description:
-      "Ideas alone aren’t enough, they need to move. We make that happen through our alumni network, the right mentors, proven companies, and founder-to-founder conversations. Community isn’t just support, it’s your launchpad. The right connections. At the right time. Where it counts from the exclusive people.",
+      "Ideas alone aren't enough, they need to move. We make that happen through our alumni network, the right mentors, proven companies, and founder-to-founder conversations. Community isn't just support, it's your launchpad. The right connections. At the right time. Where it counts from the exclusive people.",
   },
 ];
 
@@ -53,14 +53,14 @@ const WeWorkFast = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["0%", "-90%"] : ["0%", "-92%"]
+    width < 768 ? ["0%", "-83.33%"] : ["0%", "-92%"]
   );
 
   // Adjust the progress bar width for smaller screens
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["10vw", "500vw"] : ["5vh", "400vh"] // Adjusted the max width for smaller screens to fit properly
+    width < 768 ? ["10vw", "600vw"] : ["5vh", "400vh"]
   );
 
   useEffect(() => {
