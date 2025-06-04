@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,6 +58,28 @@ const advisors = [
 ];
 
 const Page = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
+    null
+  );
+
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number
+  ) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoveredCard(index);
+    setHoverPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredCard(null);
+    setHoverPos(null);
+  };
+
   return (
     <div className="w-full min-h-screen text-white py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
@@ -73,10 +99,32 @@ const Page = () => {
           {advisors.map((advisor, index) => (
             <div
               key={index}
-              className="flex flex-col items-center border border-[#499478]/30 p-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={handleMouseLeave}
+              className="relative flex flex-col items-center border border-[#499478]/30 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:scale-[1.02] backdrop-blur-md overflow-hidden"
             >
-              {/* Image with Shape Background */}
-              <div className="relative w-48 h-48 mb-6 flex justify-center items-center rounded-full overflow-hidden  shadow-xl">
+              {/* Hover glow circle */}
+              {hoveredCard === index && hoverPos && (
+                <motion.div
+                  className="pointer-events-none absolute rounded-full"
+                  style={{
+                    top: hoverPos.y - 75,
+                    left: hoverPos.x - 75,
+                    width: 150,
+                    height: 150,
+                    background:
+                      "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
+                    filter: "blur(30px)",
+                    mixBlendMode: "screen",
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
+
+              {/* Image */}
+              <div className="relative w-48 h-48 mb-6 flex justify-center items-center rounded-full overflow-hidden shadow-xl">
                 <Image
                   src={advisor.img || "/placeholder.svg"}
                   alt={advisor.name}
@@ -86,7 +134,7 @@ const Page = () => {
                 />
               </div>
 
-              {/* Name and Role */}
+              {/* Name & Role */}
               <h3 className="text-3xl md:text-5xl font-bold text-color mb-1 text-center">
                 {advisor.name}
               </h3>
@@ -94,17 +142,17 @@ const Page = () => {
                 {advisor.role}
               </p>
 
-              {/* LinkedIn Icon */}
+              {/* LinkedIn */}
               <Link
                 href={advisor.link}
-                className="text-lg text-blue-500 transition-all duration-200 hover:text-blue-600 mb-4"
-                aria-label={`${advisor.name}'s LinkedIn profile`}
+                className="text-lg text-white transition-all duration-200  mb-4"
                 target="_blank"
+                aria-label={`${advisor.name}'s LinkedIn profile`}
               >
                 <Linkedin size={24} />
               </Link>
 
-              {/* Profile Text */}
+              {/* Profile */}
               <p className="text-sm md:text-base text-gray-300 text-center max-w-xs">
                 {advisor.profile}
               </p>
