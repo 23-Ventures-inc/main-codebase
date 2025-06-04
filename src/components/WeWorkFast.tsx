@@ -60,7 +60,7 @@ const WeWorkFast = () => {
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["10vw", "500vw"] : ["5vh", "400vh"] // Adjusted the max width for smaller screens to fit properly
+    width < 768 ? ["10vh", "500vh"] : ["5vh", "400vh"] // Adjusted the max width for smaller screens to fit properly
   );
 
   useEffect(() => {
