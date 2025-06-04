@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const items = [
@@ -43,29 +43,20 @@ const items = [
 ];
 
 const WeWorkFast = () => {
-  const [width, setWidth] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    width < 768 ? ["0%", "-94%"] : ["0%", "-92%"]
-  );
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-92%"]);
 
-  // Adjust the progress bar width for smaller screens
+  // Map progress bar from 0% to 100% of parent container width
   const progressbarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["10vh", "500vh"] : ["5vh", "400vh"] // Adjusted the max width for smaller screens to fit properly
+    ["0%", "100%"]
   );
-
-  useEffect(() => {
-    setWidth(window.screen.width);
-  }, []);
 
   return (
     <div className="relative w-full" ref={containerRef}>
