@@ -12,7 +12,6 @@ import New from "@/components/New";
 import WeWorkFast from "@/components/WeWorkFast";
 import FaqSection from "@/components/FaqSection";
 import VideoPage from "@/components/VideoPage";
-import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -69,8 +68,6 @@ export default function Home() {
         {/* Content only rendered after intro ends */}
         {!showAnimation && (
           <div className="relative min-h-screen w-full">
-            <Navbar />
-
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -108,7 +105,7 @@ export default function Home() {
           </div>
         )}
         {/* Layout placeholder during intro to prevent footer jump */}
-        {showAnimation && <div className="invisible h-[4000px] w-full" />}
+        {showAnimation && <div className="invisible h-[6000px] w-full" />}
       </div>
     </>
   );
