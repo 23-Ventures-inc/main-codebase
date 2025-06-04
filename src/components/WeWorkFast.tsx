@@ -52,11 +52,7 @@ const WeWorkFast = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-92%"]);
 
   // Map progress bar from 0% to 100% of parent container width
-  const progressbarWidth = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", "100%"]
-  );
+  const progressbarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "98%"]);
 
   return (
     <div className="relative w-full" ref={containerRef}>
