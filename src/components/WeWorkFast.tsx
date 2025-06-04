@@ -53,7 +53,7 @@ const WeWorkFast = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    width < 768 ? ["0%", "-95%"] : ["0%", "-92%"]
+    width < 768 ? ["0%", "-94%"] : ["0%", "-92%"]
   );
 
   // Adjust the progress bar width for smaller screens
