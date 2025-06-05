@@ -144,13 +144,14 @@ const Navbar = () => {
     { text: "Culture", link: "/culture" },
     { text: "Niches", link: "/niches" },
     { text: "Advisors", link: "/advisors" },
+    { text: "Portfolio", link: "/portfolio" },
     { text: "News", link: "https://medium.com/@23ventureinc" },
   ];
 
   return (
     <nav className="fixed top-4 w-full z-50">
-      <div className="fixed top-4 w-screen h-[10vh] md:h-[10vh] flex justify-center items-center z-50">
-        <div className="bg-[#111111]/60 backdrop-blur-lg h-full w-[90%] md:w-[90%] lg:w-[65%] rounded-3xl flex justify-between md:justify-between px-8 md:px-20 items-center gap-4">
+      <div className="fixed top-4 w-screen h-[9vh] md:h-[10vh] flex justify-center items-center z-50">
+        <div className="bg-[#111111]/60 backdrop-blur-lg h-full w-[90%] md:w-[90%] lg:w-[65%] rounded-3xl flex justify-between md:justify-between px-5  md:px-10 items-center gap-4">
           <Link
             href={"/"}
             className="relative h-12 w-12 rounded-full overflow-hidden flex-shrink-0"

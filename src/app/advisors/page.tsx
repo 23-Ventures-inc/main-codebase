@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 
 const advisors = [
   {
@@ -83,8 +82,6 @@ const Page = () => {
 
   return (
     <>
-      <Navbar />
-
       <div className="w-full min-h-screen text-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}

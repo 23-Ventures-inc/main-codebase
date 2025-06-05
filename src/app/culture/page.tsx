@@ -5,12 +5,10 @@ import ImageOnText from "@/components/ImageOnText";
 import PurposeSection from "@/components/PurposeSection";
 import WorkSpace from "@/components/WorkSpace";
 import { motion } from "motion/react";
-import Navbar from "@/components/Navbar";
 
 const page = () => {
   return (
     <>
-      <Navbar />
       <motion.div className="relative w-full min-h-screen flex justify-center items-center gap-4 p-8 flex-col overflow-hidden mb-8 bgGradient">
         <video
           src="/v2.mp4"
