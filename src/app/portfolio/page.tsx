@@ -4,19 +4,40 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/Button";
+import { FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 
 const advisors = [
   {
     name: "Youmat",
-    role: "Ayan Mondal & Disha Vanel",
+    link: "https://youmat.in/",
+    roles: [
+      {
+        name: "Ayan Mondal",
+        linkedin: "https://www.linkedin.com/in/ayan-mondal-6b6919275/",
+      },
+      {
+        name: "Disha Vanel",
+        linkedin: "https://www.linkedin.com/in/disha-vanel-a1409b251/",
+      },
+    ],
     profile:
-      "Youmat is a marketplace for on-demand psychological counseling, specifically designed for per-minute conversations. ",
+      "Youmat is a marketplace for on-demand psychological counseling, specifically designed for per-minute conversations.",
     img: "/Youmat.jpg",
-    buzzwords: ["Telehealth", "MVP", "Behavioral Analytics"],
+    buzzwords: ["Telehealth", "Counseling", "Behavioral Analytics"],
   },
   {
     name: "Verbly",
-    role: "Abhishek Bhattacharjee & Harshit Mishra",
+    link: "https://www.verblyai.com/ ",
+    roles: [
+      {
+        name: "Abhishek Bhattacharjee",
+        linkedin: "https://my.linkedin.com/in/abhishekb1",
+      },
+      {
+        name: "Harshit Mishra",
+        linkedin: "https://www.linkedin.com/in/harshit-senpai/",
+      },
+    ],
     profile:
       "Verbly is building an AI-powered Interactive Voice Response (IVR) platform to modernize and automate customer service calls.",
     img: "/Verbly.png",
@@ -24,27 +45,57 @@ const advisors = [
   },
   {
     name: "Vectr",
-    role: "Abhinav Pentani, Shaik Saifuddin & Ayus Pathak",
+    link: "https://vectr.co.in ",
+    roles: [
+      {
+        name: "Abhinav Pentani",
+        linkedin: "https://www.linkedin.com/in/abhinav-pentani",
+      },
+      {
+        name: "Shaik Saifuddin",
+        linkedin: "https://www.linkedin.com/in/shaik-saifuddin-482947272",
+      },
+      {
+        name: "Ayus Pathak",
+        linkedin: "https://www.linkedin.com/in/ayus-pathak",
+      },
+    ],
     profile:
       "Vectr is developing a marketplace that connects students with educators and content creators.",
     img: "/vectr.png",
-    buzzwords: ["EdTech", "AI Tools", "Community Building"],
+    buzzwords: ["EdTech", "Online Learning", "Collaboration"],
   },
   {
     name: "Geochain",
-    role: "Aryan Gupta",
+    link: "http://linkedin.com/company/geochain ",
+    roles: [
+      {
+        name: "Aryan Gupta",
+        linkedin: "https://www.linkedin.com/in/aryan-gupta-00ab92203/",
+      },
+    ],
     profile:
-      "Geochain is a Web3 platform for land tokenization in India, making real estate ownership and transactions more secure and transparent. ",
+      "Geochain is a Web3 platform for land tokenization in India, making real estate ownership and transactions more secure and transparent.",
     img: "/Geochain.png",
     buzzwords: ["Web3", "Tokenization", "Smart Contracts"],
   },
   {
     name: "Shoutout",
-    role: "Adarsh Stanly & Tushar Tomar",
+    link: "https://www.shoutoutkaro.in/",
+    roles: [
+      {
+        name: "Adarsh Stanly",
+        linkedin: "https://www.linkedin.com/in/adarsh-stanly-819667124  ",
+      },
+      {
+        name: "Tushar Tomar",
+        linkedin: "https://www.linkedin.com/in/tushar-tomar-b20aa7a1 ",
+      },
+    ],
     profile:
       "Shoutout is a two-sided marketplace that connects brands with everyday people who can promote them through simple online or offline tasks in return for stipends.",
-    img: "",
-    buzzwords: ["Gig Economy", "Community Marketing", "MVP Launch"],
+    img: "", // No image provided
+    buzzwords: ["Gig Economy", "Community Marketing", "Brand Promotion"],
   },
 ];
 
@@ -91,7 +142,7 @@ const Page = () => {
               key={index}
               onMouseMove={(e) => handleMouseMove(e, index)}
               onMouseLeave={handleMouseLeave}
-              className="relative flex flex-col flex-wrap md:flex-row items-center justify-start border border-[#499478]/30 p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.02] hover:border-[#499478] backdrop-blur-md overflow-hidden w-full max-w-4xl min-h-[320px] md:min-h-[280px]"
+              className="relative flex flex-col flex-wrap md:flex-row items-center justify-start border border-[#499478]/30 p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 hover:border-[#499478] backdrop-blur-md overflow-hidden w-full max-w-4xl min-h-[320px] md:min-h-[280px]"
             >
               {/* Hover glow circle */}
               {hoveredCard === index && hoverPos && (
@@ -135,12 +186,30 @@ const Page = () => {
                 {/* Content */}
                 <div className="flex flex-col  h-full flex-grow">
                   <div className="mb-4">
-                    <h3 className="text-3xl md:text-4xl font-bold text-color mb-1">
-                      {advisor.name}
-                    </h3>
-                    <p className="text-lg md:text-xl text-gray-400 mb-2">
-                      {advisor.role}
-                    </p>
+                    <a
+                      href={advisor.link.trim()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center text-color text-3xl md:text-4xl font-bold mb-1  transition-colors"
+                    >
+                      <span className=" mr-2">{advisor.name}</span>
+                      <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
+                    </a>
+
+                    <div className="flex flex-col gap-1 mb-3">
+                      {advisor.roles.map((person, i) => (
+                        <a
+                          key={i}
+                          href={person.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center text-gray-400"
+                        >
+                          <span className=" font-lg mr-2">{person.name}</span>
+                          <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
