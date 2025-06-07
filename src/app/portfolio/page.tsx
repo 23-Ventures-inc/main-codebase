@@ -97,6 +97,61 @@ const advisors = [
     img: "", // No image provided
     buzzwords: ["Gig Economy", "Community Marketing", "Brand Promotion"],
   },
+  {
+    name: "Diigoo",
+    link: "https://diigoo.com/",
+    roles: [
+      {
+        name: "Sainath Tangallapelly",
+        linkedin:
+          "https://www.linkedin.com/in/sainath-tangallapelly-b5a890160/",
+      },
+      {
+        name: "Nagasai Chimmili",
+        linkedin: "https://www.linkedin.com/in/nagasai-chimmili/",
+      },
+    ],
+    profile:
+      "Diigoo is building India’s most inclusive and community-driven Web3 ecosystem by combining blockchain technology with real-world utility and accessibility.",
+    img: "/diigoo.png",
+    buzzwords: [
+      "Decentralization",
+      "Blockchain Infrastructure",
+      "BaaS (Blockchain-as-a-Service)",
+    ],
+  },
+  {
+    name: "Jogen",
+    link: "https://jogen.space/",
+    roles: [
+      {
+        name: "Darpreet Singh",
+        linkedin: "https://www.linkedin.com/in/dxrpreet/ ",
+      },
+    ],
+    profile:
+      "Jogen is an emotionally intelligent AI journaling app designed to foster mindful self-reflection through private, personalized voice and text-based conversations.",
+    img: "/jogen.jpg",
+    buzzwords: [
+      "Emotionally Intelligent AI",
+      "Mood & Energy Tracking",
+      "Journaling",
+    ],
+  },
+  {
+    name: "Cohyve",
+    link: "https://www.cohyve.io/",
+    roles: [
+      {
+        name: "Rupesh Kumar",
+        linkedin: "https://www.linkedin.com/in/therupeshkumar/",
+      },
+    ],
+    profile:
+      "Cohyve is a scalable, on-demand creative platform that connects brands with top-tier global design talent to deliver high-quality, fast-turnaround visual content across every format.",
+    img: "/cohvey.jpeg",
+    buzzwords: ["Creative Ops", "Scalable Workflows", "Task Automation"],
+  },
 ];
 
 const Page = () => {
