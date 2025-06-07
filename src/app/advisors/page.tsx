@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import useTheme from "@/hooks/useTheme";
 
 const advisors = [
   {
@@ -58,13 +59,16 @@ const advisors = [
 ];
 
 const Page = () => {
+  const { theme } = useTheme(); // get current theme
+  const isDarkMode = theme === "dark";
+
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
     null
   );
 
   const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    e: React.MouseEvent<HTMLDivElement>,
     index: number
   ) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -82,11 +86,11 @@ const Page = () => {
 
   return (
     <>
-      <div className="w-full min-h-screen text-white py-16 px-4 md:px-8">
+      <div className="w-full min-h-screen bg-white text-black dark:bg-black dark:text-white py-16 px-4 md:px-8 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
-            <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-white via-green-600 to-white text-center">
+            <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-black via-green-600 to-black dark:from-white dark:via-green-400 dark:to-white text-center">
               Our <span className="text-color"> Advisors </span>
             </h1>
             <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%]">
@@ -102,9 +106,8 @@ const Page = () => {
                 key={index}
                 onMouseMove={(e) => handleMouseMove(e, index)}
                 onMouseLeave={handleMouseLeave}
-                className="relative flex flex-col items-center border border-[#499478]/30 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:scale-[1.02] backdrop-blur-md overflow-hidden"
+                className="relative flex flex-col items-center border border-[#499478]/30 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:scale-[1.02] backdrop-blur-md overflow-hidden bg-transparent"
               >
-                {/* Hover glow circle */}
                 {hoveredCard === index && hoverPos && (
                   <motion.div
                     className="pointer-events-none absolute rounded-full"
@@ -113,8 +116,9 @@ const Page = () => {
                       left: hoverPos.x - 75,
                       width: 150,
                       height: 150,
-                      background:
-                        "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
+                      background: isDarkMode
+                        ? "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)"
+                        : "radial-gradient(circle, rgba(51,52,53,0.3) 0%, rgba(51,52,53,0) 60%)",
                       filter: "blur(30px)",
                       mixBlendMode: "screen",
                     }}
@@ -139,14 +143,14 @@ const Page = () => {
                 <h3 className="text-3xl md:text-5xl font-bold text-color mb-1 text-center">
                   {advisor.name}
                 </h3>
-                <p className="text-lg md:text-xl mb-2 text-gray-400">
+                <p className="text-lg md:text-xl mb-2 text-gray-600 dark:text-gray-400">
                   {advisor.role}
                 </p>
 
                 {/* LinkedIn */}
                 <Link
                   href={advisor.link}
-                  className="text-lg text-white transition-all duration-200  mb-4"
+                  className="text-lg text-black dark:text-white transition-all duration-200 mb-4"
                   target="_blank"
                   aria-label={`${advisor.name}'s LinkedIn profile`}
                 >
@@ -154,7 +158,7 @@ const Page = () => {
                 </Link>
 
                 {/* Profile */}
-                <p className="text-sm md:text-base text-gray-300 text-center max-w-xs">
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 text-center max-w-xs">
                   {advisor.profile}
                 </p>
               </div>

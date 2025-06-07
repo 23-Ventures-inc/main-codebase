@@ -4,6 +4,7 @@
 import Button from "./Button";
 import { useState } from "react";
 import { motion } from "motion/react";
+import useTheme from "@/hooks/useTheme";
 
 const data = [
   {
@@ -77,7 +78,7 @@ const data = [
 const OffersBoxs = () => {
   return (
     <div className="relative w-full h-auto overflow-hidden grid place-items-center gap-4">
-      <span className="min-h-[20vh] md:text-6xl font-bold text-3xl w-full h-[20%] text-center flex justify-center items-center">
+      <span className="min-h-[20vh] md:text-6xl font-bold text-black dark:text-white text-3xl w-full h-[20%] text-center flex justify-center items-center">
         We offer 2 seasons
       </span>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[3.5vw] w-full max-w-[1600px] px-[3.5vw] mx-auto min-h-[80vh]">
@@ -106,12 +107,20 @@ interface BoxesProps {
 }
 
 const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
+  const { theme } = useTheme(); // get current theme
+  const isDarkMode = theme === "dark";
+
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
     null
   );
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>,
+    index: number
+  ) => {
     const rect = e.currentTarget.getBoundingClientRect();
+    setHoveredCard(index);
     setHoverPos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
@@ -119,23 +128,19 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
   };
 
   const handleMouseLeave = () => {
+    setHoveredCard(null);
     setHoverPos(null);
   };
 
   return (
     <div className="h-auto flex items-center justify-center m-auto flex-col  w-full max-w-[700px]">
-      <motion.div
-        onMouseMove={handleMouseMove}
+      <div
+        key={index}
+        onMouseMove={(e) => handleMouseMove(e, index)}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full rounded-[32px] p-10 flex flex-col h-auto
-          bg-black/20
-          backdrop-blur-md
-          border border-[#499478]/30
-          shadow-lg
-          overflow-hidden"
+        className="relative flex flex-col flex-wrap md:flex-row items-center justify-center border border-[#499478]/30 dark:border-green-400/20 p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 hover:border-[#499478] backdrop-blur-md overflow-hidden w-full max-w-4xl min-h-[320px] md:min-h-[280px] bg-transparent"
       >
-        {/* Shiny circle effect */}
-        {hoverPos && (
+        {hoveredCard === index && hoverPos && (
           <motion.div
             className="pointer-events-none absolute rounded-full"
             style={{
@@ -143,11 +148,11 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
               left: hoverPos.x - 75,
               width: 150,
               height: 150,
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)",
+              background: isDarkMode
+                ? "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)"
+                : "radial-gradient(circle, rgba(51,52,53,0.3) 0%, rgba(51,52,53,0) 60%)",
               filter: "blur(30px)",
               mixBlendMode: "screen",
-              opacity: 1,
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -157,18 +162,18 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
 
         {/* Title Section */}
         <div className="text-center mb-4">
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-200 mb-4">
+          <h2 className="text-5xl md:text-7xl font-bold dark:text-white text-black mb-4">
             {title}
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-8">
             {description}{" "}
             {index == 0 ? (
-              <span className="font-bold text-white text-2xl">
+              <span className="font-bold text-black dark:text-white text-2xl">
                 <br />
                 April - August
               </span>
             ) : (
-              <span className="font-bold text-white text-2xl">
+              <span className="font-bold text-black dark:text-white text-2xl">
                 <br />
                 October - February
               </span>
@@ -208,7 +213,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
               <h3 className="text-gray-400 text-base md:text-lg w-full md:w-1/4">
                 {key}
               </h3>
-              <p className="text-gray-200 text-base md:text-lg font-medium w-full md:w-3/4">
+              <p className="dark:text-gray-200 text-black/80 text-base md:text-lg font-medium w-full md:w-3/4">
                 {point}
               </p>
             </motion.div>
@@ -222,7 +227,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
             onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
           />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const data = [
 const CommitSection = () => {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center gap-12 mb-16">
-      <span className="w-full text-center text-4xl md:text-7xl font-bold mb-16 mt-10">
+      <span className="w-full text-center text-black dark:text-white text-4xl md:text-7xl font-bold mb-16 mt-10">
         Every season we commit
       </span>
       <div className="w-[90%] grid md:w-[80%] md:grid-cols-2 gap-12 justify-center items-center">

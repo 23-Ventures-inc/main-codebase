@@ -7,7 +7,7 @@ const data = [
 const PurposeSection = () => {
   return (
     <div className="flex justify-center items-center py-8 px-4 w-full h-auto flex-col gap-8">
-      <span className="md:text-5xl text-2xl font-bold  text-center">
+      <span className="md:text-5xl text-2xl font-bold  text-center text-black dark:text-white">
         <span className="text-color">Purpose</span> is something <br />
         you run with, not run for !!
       </span>

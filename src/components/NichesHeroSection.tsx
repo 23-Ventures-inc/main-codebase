@@ -15,7 +15,7 @@ const NichesHeroSection = () => {
   return (
     <>
       <span className="flex justify-center items-center gap-8 flex-col">
-        <h3 className="md:text-4xl text-xl font-bold text-center mb-4">
+        <h3 className="md:text-4xl text-xl font-bold text-center mb-4 text-black dark:text-white">
           We look for builders, thinkers
           <br />
           and dreamers who want to shape the world
@@ -23,9 +23,11 @@ const NichesHeroSection = () => {
           for the next decade !
         </h3>
       </span>
-      <span className="text-color font-bold mx-auto my-4 text-xl italic">
+
+      <span className="text-color font-bold mx-auto my-4 text-xl italic dark:text-green-400">
         Niche
       </span>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-[80%] md:w-[80%]">
         {TopData.map(({ url, text }, index) => {
           return (
@@ -52,9 +54,11 @@ const NichesHeroSection = () => {
           );
         })}
       </div>
-      <span className="text-color font-bold mx-auto my-4 text-xl italic">
+
+      <span className="text-color font-bold mx-auto my-4 text-xl italic dark:text-green-400">
         Sub-Niche
       </span>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 w-[80%] md:w-[80%]">
         {belowData.map(({ url, text }, index) => {
           return (
@@ -73,7 +77,7 @@ const NichesHeroSection = () => {
               />
               {/* Content */}
               <div className="relative z-20 flex flex-col justify-center items-center gap-4 text-center text-white">
-                <h2 className={`text-lg sm:text-xl md:text-xl font-bold `}>
+                <h2 className="text-lg sm:text-xl md:text-xl font-bold">
                   {text}
                 </h2>
               </div>

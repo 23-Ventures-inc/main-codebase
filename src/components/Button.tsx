@@ -3,24 +3,26 @@ import Link from "next/link";
 interface ButtonProps {
   text: string;
   onClickUrl: string;
+  clr?: string; // Color for dark mode text
 }
 
-const Button = ({ text, onClickUrl }: ButtonProps) => {
+const Button = ({ text, onClickUrl, clr = "black" }: ButtonProps) => {
   return (
     <div className="flex justify-center items-center">
       <Link href={onClickUrl}>
         <button
           type="button"
-          className="
+          className={`
             font-sans flex justify-center gap-2 items-center shadow-xl 
             text-md sm:text-md md:text-md  
-            text-gray-50 bg-transparent backdrop-blur-md font-semibold 
+            text-${clr} bg-transparent backdrop-blur-md font-semibold 
             isolation-auto relative z-10 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2
             overflow-hidden border-2 border-[#499478] rounded-full group
             before:absolute before:w-full before:aspect-square before:-left-full before:rounded-full before:bg-[#499478]
             before:transition-all before:duration-700 before:-z-10
             before:hover:left-0 before:hover:scale-150
-          "
+            dark:text-white
+          `}
         >
           {text}
 

@@ -59,7 +59,7 @@ const WeWorkFast = () => {
       <div className="h-screen sticky top-[15vh] overflow-hidden">
         {/* Fixed title section */}
         <div className="absolute top-0 left-0 w-full z-10 p-8">
-          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-center">
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-black dark:text-white text-center">
             Why 23V is more than just a Venture Capital ?
           </h1>
           <p className="font-base text-lg md:text-xl text-gray-400 text-center mt-4">
@@ -79,7 +79,7 @@ const WeWorkFast = () => {
               className={`flex-shrink-0 w-screen md:w-[70vh] h-full p-8 flex items-start justify-start flex-col gap-10 `}
             >
               <h2
-                className={`md:text-4xl font-bold text-white ${
+                className={`md:text-4xl font-bold text-black dark:text-white ${
                   item.id === 3 ? "text-2xl" : "text-3xl"
                 }`}
               >
@@ -90,13 +90,14 @@ const WeWorkFast = () => {
                 {item.id === 1 ? null : (
                   <span className="absolute z-30 -top-16 md:-top-10">
                     <svg
-                      fill="white"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 4 80"
                       width="5"
                       height="120"
+                      className="stroke-black dark:stroke-white"
+                      fill="none"
                     >
-                      <path d="M2 96V0" stroke="white" strokeWidth="4"></path>
+                      <path d="M2 96V0" strokeWidth="4"></path>
                     </svg>
                   </span>
                 )}

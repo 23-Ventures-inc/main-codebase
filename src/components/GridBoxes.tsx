@@ -42,17 +42,17 @@ const features = [
 const GridBoxes = () => {
   return (
     <div className="w-full h-auto min-h-screen flex justify-center items-center py-8 flex-col my-12">
-      <span className="w-full text-center text-2xl md:text-7xl font-bold mb-4 mt-10">
+      <span className="w-full text-center text-2xl md:text-7xl font-bold mb-4 mt-10 text-black dark:text-white">
         <span className="text-color">Real</span> Value Proposition
       </span>
-      <span className="w-full text-center text-2xl font-bold mb-16">
+      <span className="w-full text-center text-2xl font-bold mb-16 text-black dark:text-white">
         Founder’s Point of Interest
       </span>
       <div className="w-[90%] max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map(({ description, imgUrl, title }, index) => {
           return (
             <div
-              className="w-full h-auto boxesbg rounded-3xl p-6 flex flex-col items-center gap-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="w-full h-auto bg-gray-100/90 dark:bg-[#171717d3] rounded-3xl p-6 flex flex-col items-center gap-6 shadow-md hover:shadow-xl transition-shadow duration-300"
               key={index}
             >
               <div className="w-full h-[250px] overflow-hidden rounded-xl relative">
@@ -65,12 +65,14 @@ const GridBoxes = () => {
                 />
               </div>
               <div className="text-center">
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold text-black dark:text-white ">
                   {title}
                   <br />
                   {index === 1 ? "(20 weeks)" : ""}
                 </h2>
-                <p className="text-md text-gray-300 mt-2">{description}</p>
+                <p className="text-md text-black/50 dark:text-gray-400 mt-2">
+                  {description}
+                </p>
               </div>
             </div>
           );

@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoPage = () => {
   return (
-    <div className="bg-black min-h-screen flex flex-col justify-center items-center px-4 mb-10 text-white font-sans">
+    <div className=" min-h-screen flex flex-col justify-center items-center px-4 mb-10 text-black dark:text-white font-sans">
       {/* Title Section */}
       <div className="text-center mb-12 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">

@@ -35,7 +35,7 @@ const WhyUsSection = () => {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center gap-12 mb-16">
-      <span className="w-full text-center text-4xl md:text-7xl font-bold mb-16 mt-10 px-8 flex justify-center items-center gap-3 flex-col">
+      <span className="w-full text-center text-4xl md:text-7xl font-bold mb-16 mt-10 px-8 flex justify-center items-center gap-3 flex-col text-black dark:text-white">
         <span className="text-color">23 Ventures is not for you</span>
         if
       </span>
@@ -46,12 +46,12 @@ const WhyUsSection = () => {
             key={index}
             onMouseMove={(e) => handleMouseMove(e, index)}
             onMouseLeave={handleMouseLeave}
-            className="relative h-[100%] w-full border border-[#499478]/30 rounded-3xl text-xl md:text-3xl font-light text-gray-200 flex items-center justify-center px-12 p-8 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-[#499478]"
+            className="relative h-[100%] w-full border border-[#499478]/30 rounded-3xl text-xl md:text-3xl font-light text-black dark:text-white flex items-center justify-center px-12 p-8 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-[#499478]"
           >
             {/* Shiny circle effect */}
             {hoveredCard === index && hoverPos && (
               <motion.div
-                className="pointer-events-none absolute rounded-full"
+                className="pointer-events-none  absolute rounded-full"
                 style={{
                   top: hoverPos.y - 75,
                   left: hoverPos.x - 75,

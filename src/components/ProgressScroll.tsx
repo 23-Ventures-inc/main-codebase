@@ -130,7 +130,7 @@ const Boxes = ({ index, title, text }: props) => {
             <h4 className="text-[#499478] font-semibold text-base">
               Step {index + 1}
             </h4>
-            <h2 className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white text-left md:text-center">
+            <h2 className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black dark:text-white  text-left md:text-center">
               {title}
             </h2>
             <p

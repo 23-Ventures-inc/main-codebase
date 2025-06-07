@@ -72,12 +72,12 @@ export default function FAQ() {
   };
 
   return (
-    <section className="w-full p-5 flex flex-col items-center ">
+    <section className="w-full p-5 flex flex-col items-center bg-white dark:bg-black transition-colors duration-300">
       <div className="container">
-        <h1 className="font-bold text-white mb-5 text-4xl md:text-5xl lg:text-6xl text-center">
+        <h1 className="font-bold mb-5 text-4xl md:text-5xl lg:text-6xl text-center text-black dark:text-white">
           Frequently Asked Questions
         </h1>
-        <p className="font-base text-lg md:text-xl mb-10 text-gray-400 text-center mt-4">
+        <p className="font-base text-lg md:text-xl mb-10 text-center mt-4 text-gray-700 dark:text-gray-400">
           Answers to the most common questions about 23 Ventures.
         </p>
 
@@ -85,25 +85,19 @@ export default function FAQ() {
           {faqData.map(({ question, answer }, i) => (
             <div
               key={i}
-              className="accordion-item p-2"
-              onClick={() => toggle(i)} // 🔁 Entire row is clickable
-              style={{
-                border: "1px solid  #424242",
-                borderRadius: 10,
-                marginBottom: 12,
-                overflow: "hidden",
-                boxShadow:
-                  openIndex === i ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
-                cursor: "pointer",
-              }}
+              className={`accordion-item p-2 dark:border-gray-700 rounded-lg  border border-gray-600 cursor-pointer mb-3 overflow-hidden
+                ${
+                  openIndex === i ? "bg-white dark:bg-black" : "bg-transparent"
+                }`}
+              onClick={() => toggle(i)}
             >
               <div className="flex flex-row items-center justify-between pr-5">
                 <div
                   className="flex items-center gap-3 pl-5 py-4"
-                  style={{ color: "#fff", fontWeight: 600, fontSize: 18 }}
+                  style={{ fontWeight: 600, fontSize: 18 }}
                 >
                   <FaQuestionCircle size={24} color="#6c757d" />
-                  <span>{question}</span>
+                  <span className="text-black dark:text-white">{question}</span>
                 </div>
 
                 <FaChevronDown
@@ -129,10 +123,9 @@ export default function FAQ() {
                     style={{ overflow: "hidden" }}
                   >
                     <div
-                      className="accordion-body"
+                      className="accordion-body text-black dark:text-white"
                       style={{
                         padding: "1rem 1.25rem",
-                        color: "#fff",
                         fontSize: 16,
                         lineHeight: 1.5,
                       }}

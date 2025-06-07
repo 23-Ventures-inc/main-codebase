@@ -42,7 +42,7 @@ const features = [
 const WorkSpace = () => {
   return (
     <div className="flex justify-center items-center gap-6 flex-col w-full min-h-screen mb-8 ">
-      <span className="md:text-5xl text-2xl font-bold  text-center">
+      <span className="md:text-5xl text-2xl font-bold text-black dark:text-white  text-center">
         A virtual Workspace for <br /> dreamers, next founder’s, differentiators{" "}
         <br /> and visionaries.
       </span>
@@ -50,7 +50,7 @@ const WorkSpace = () => {
         {features.map(({ description, imgUrl, title }, index) => {
           return (
             <div
-              className="w-full h-auto boxesbg rounded-3xl p-6 flex flex-col items-center gap-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="w-full h-auto bg-gray-100/90 dark:bg-[#171717d3] rounded-3xl p-6 flex flex-col items-center gap-6 shadow-md hover:shadow-xl transition-shadow duration-300"
               key={index}
             >
               <div className="w-full h-[250px] overflow-hidden rounded-xl relative">
@@ -63,12 +63,14 @@ const WorkSpace = () => {
                 />
               </div>
               <div className="text-center">
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold text-black dark:text-white ">
                   {title}
                   <br />
                   {index === 1 ? "(20 weeks)" : ""}
                 </h2>
-                <p className="text-md text-gray-300 mt-2">{description}</p>
+                <p className="text-md text-black/50 dark:text-gray-400 mt-2">
+                  {description}
+                </p>
               </div>
             </div>
           );

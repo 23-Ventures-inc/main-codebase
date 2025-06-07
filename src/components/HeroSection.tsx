@@ -54,10 +54,10 @@ const renderImages = (imageList: string[]) => (
 const HeroSection = () => {
   return (
     <>
-      <h1 className="md:text-7xl text-5xl font-bold m-10 text-center text-white">
+      <h1 className="md:text-7xl text-5xl font-bold m-10 text-center text-black dark:text-white ">
         Hall of Fame
       </h1>
-      <div className="relative w-full min-h-[80vh] mb-10 bg-black text-white overflow-hidden">
+      <div className="relative w-full min-h-[80vh] mb-10 bg-white dark:bg-black text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-[25vh] z-0">
           <Marquee gradient={false} speed={40} direction="left">
             {renderImages(imagesRow1)}
@@ -73,11 +73,11 @@ const HeroSection = () => {
 
         {/* Centered Text */}
         <div className="absolute top-[25vh] bottom-[25vh] left-0 right-0 flex flex-col justify-center items-center z-10 text-center px-4 pointer-events-none">
-          <h2 className="font-bold text-[clamp(1.75rem,4vw,3rem)] leading-tight">
+          <h2 className="font-bold text-[clamp(1.75rem,4vw,3rem)] leading-tight text-black dark:text-white">
             We build <span className="text-[#499478]">People</span> beyond{" "}
             <span className="text-[#499478]">ideas</span>
           </h2>
-          <p className="mt-4 font-medium text-[clamp(1rem,2.5vw,1.25rem)]">
+          <p className="mt-4 text-black dark:text-white font-medium text-[clamp(1rem,2.5vw,1.25rem)]">
             5-month Startup Program, Limited Early Stage founders, Building the
             next big thing
           </p>
