@@ -32,8 +32,9 @@ const ProcessGrids = () => {
                   {title}
                 </h2>
                 <Button
-                  text="Apply"
                   onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
+                  text="Apply"
+                  clr="white"
                 />
               </div>
             </div>
