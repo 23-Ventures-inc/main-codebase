@@ -11,6 +11,7 @@ const advisors = [
   {
     name: "Youmat",
     link: "https://youmat.in/",
+    linkedinlink: "https://www.linkedin.com/company/youmathealth/  ",
     roles: [
       {
         name: "Ayan Mondal",
@@ -29,6 +30,7 @@ const advisors = [
   {
     name: "Verbly",
     link: "https://www.verblyai.com/ ",
+    linkedinlink: "https://www.linkedin.com/company/verblyai",
     roles: [
       {
         name: "Abhishek Bhattacharjee",
@@ -47,6 +49,7 @@ const advisors = [
   {
     name: "Vectr",
     link: "https://vectr.co.in ",
+    linkedinlink: "https://www.linkedin.com/company/vectrs",
     roles: [
       {
         name: "Abhinav Pentani",
@@ -69,6 +72,7 @@ const advisors = [
   {
     name: "Geochain",
     link: "http://linkedin.com/company/geochain ",
+    linkedinlink: "http://linkedin.com/company/geochain ",
     roles: [
       {
         name: "Aryan Gupta",
@@ -101,6 +105,7 @@ const advisors = [
   {
     name: "Diigoo",
     link: "https://diigoo.com/",
+    linkedinlink: "https://www.linkedin.com/company/diigoo/",
     roles: [
       {
         name: "Sainath Tangallapelly",
@@ -124,6 +129,7 @@ const advisors = [
   {
     name: "Jogen",
     link: "https://jogen.space/",
+    linkedinlink: "https://www.linkedin.com/company/jogen-ai/",
     roles: [
       {
         name: "Darpreet Singh",
@@ -142,6 +148,7 @@ const advisors = [
   {
     name: "Cohyve",
     link: "https://www.cohyve.io/",
+    linkedinlink: "https://www.linkedin.com/company/cohyve/",
     roles: [
       {
         name: "Rupesh Kumar",
@@ -255,6 +262,18 @@ const Page = () => {
                       <span className="mr-2">{advisor.name}</span>
                       <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
                     </a>
+                    {/* Show LinkedIn icon only if the main link is a LinkedIn URL */}
+                    {advisor.linkedinlink && (
+                      <a
+                        href={advisor.linkedinlink.trim()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${advisor.name} LinkedIn`}
+                        className=" group inline-flex m-3 text-gray-600 dark:text-gray-400"
+                      >
+                        <FaLinkedin className="text-2xl group-hover:scale-110 transition-transform" />
+                      </a>
+                    )}
 
                     <div className="flex flex-col gap-1 mb-3">
                       {advisor.roles.map((person, i) => (
