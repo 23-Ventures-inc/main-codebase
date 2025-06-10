@@ -6,7 +6,7 @@ const ProcessEnd = () => {
       <span className="md:text-5xl text-2xl font-bold text-black dark:text-white text-center mb-4">
         Want to build with us
       </span>
-      <Button text="Apply" onClickUrl="https://deformity.ai/d/0FQReup5wsCr" />
+      <Button text="Apply" onClickUrl="https://tally.so/r/mZLPk5" />
     </div>
   );
 };

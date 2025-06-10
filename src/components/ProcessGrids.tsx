@@ -32,7 +32,7 @@ const ProcessGrids = () => {
                   {title}
                 </h2>
                 <Button
-                  onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
+                  onClickUrl="https://tally.so/r/mZLPk5"
                   text="Apply"
                   clr="white"
                 />

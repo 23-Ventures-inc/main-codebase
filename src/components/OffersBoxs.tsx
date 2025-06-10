@@ -222,10 +222,7 @@ const Boxes = ({ description, keyPoints, title, index }: BoxesProps) => {
 
         {/* Button Section */}
         <div className="mt-8 flex justify-center">
-          <Button
-            text="Apply"
-            onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
-          />
+          <Button text="Apply" onClickUrl="https://tally.so/r/mZLPk5" />
         </div>
       </div>
     </div>

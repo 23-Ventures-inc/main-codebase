@@ -302,10 +302,7 @@ const Page = () => {
             Have an idea that aligns with our vision? Share it with us — start
             your application today!
           </p>
-          <Button
-            onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
-            text="Apply"
-          />
+          <Button onClickUrl="https://tally.so/r/mZLPk5" text="Apply" />
         </div>
       </div>
     </div>

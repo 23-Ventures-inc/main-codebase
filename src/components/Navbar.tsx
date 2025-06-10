@@ -43,10 +43,7 @@ const Navbar = () => {
                 {link.text}
               </Link>
             ))}
-            <Button
-              onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
-              text="Apply"
-            />
+            <Button onClickUrl="https://tally.so/r/mZLPk5" text="Apply" />
             <ThemeToggle />
           </div>
 
@@ -74,10 +71,7 @@ const Navbar = () => {
                   {link.text}
                 </Link>
               ))}
-              <Button
-                onClickUrl="https://deformity.ai/d/0FQReup5wsCr"
-                text="Apply"
-              />
+              <Button onClickUrl="https://tally.so/r/mZLPk5" text="Apply" />
             </div>
           </div>
         )}

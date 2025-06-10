@@ -34,7 +34,7 @@ const links = [
   },
   {
     text: "Apply",
-    link: "https://deformity.ai/d/0FQReup5wsCr",
+    link: "https://tally.so/r/mZLPk5",
   },
 ];
 
