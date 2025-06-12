@@ -66,7 +66,7 @@ const advisors = [
     ],
     profile:
       "Vectr is developing a marketplace that connects students with educators and content creators.",
-    img: "/vectr.png",
+    img: "/vectrr.png",
     buzzwords: ["EdTech", "Online Learning", "Collaboration"],
   },
   {
