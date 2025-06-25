@@ -15,8 +15,8 @@ const HomePage = () => {
         </h1>
         <p className="md:text-xl text-sm text-center text-white font-semibold mb-8 italic md:w-[55%]">
           We bring early-stage entrepreneurs of all ages together, invest time,
-          sprint capital in them and connect them with investors post season;
-          Ideas are secondary, people are the first.
+          form community led distribution and connect them with investors post
+          season, ideas are secondary, and people are the first.
         </p>
         <Button
           onClickUrl="https://tally.so/r/mZLPk5"

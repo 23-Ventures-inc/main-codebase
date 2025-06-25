@@ -14,7 +14,7 @@ const features = [
     imgUrl: "/col2.jpg",
   },
   {
-    title: "Quick Investments and Demo Day",
+    title: "Demo Day",
     description:
       "Get access to investment opportunities on demo day that help you scale your business faster post cohort",
     imgUrl: "/col18.jpg",

@@ -27,7 +27,7 @@ const data = [
       },
       {
         key: "Equity Dilution",
-        point: "6% Equity hold by 23Ventures",
+        point: "4-6% Equity hold by 23Ventures",
       },
       {
         key: "Milestones (In 5 Months)",
@@ -60,7 +60,7 @@ const data = [
       },
       {
         key: "Equity Dilution",
-        point: "6% Equity hold by 23Ventures",
+        point: "4-6% Equity hold by 23Ventures",
       },
       {
         key: "Milestones (In 5 Months)",

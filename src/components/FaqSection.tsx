@@ -23,7 +23,7 @@ const faqData = [
   {
     question: "What's the equity model at 23 Ventures?",
     answer:
-      "We take 6% equity in each startup that is part of 23 Ventures and actively supported in its growth journey.",
+      "We take 4-6% equity in each startup that is part of 23 Ventures and actively supported in its growth journey.",
   },
   {
     question: "How do I apply to become part of a venture?",

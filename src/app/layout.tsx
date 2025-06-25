@@ -56,15 +56,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ scrollbarWidth: "none" }}>
+    <html lang="en" className="dark" style={{ scrollbarWidth: "none" }}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mainContainer `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased mainContainer`}
         suppressHydrationWarning
         style={{ scrollbarWidth: "none" }}
       >
         <Navbar />
-
-        {/* <ParticleBackground /> */}
         {children}
         <Footer />
       </body>

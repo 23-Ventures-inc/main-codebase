@@ -126,25 +126,7 @@ const advisors = [
       "BaaS (Blockchain-as-a-Service)",
     ],
   },
-  {
-    name: "Jogen",
-    link: "https://jogen.space/",
-    linkedinlink: "https://www.linkedin.com/company/jogen-ai/",
-    roles: [
-      {
-        name: "Darpreet Singh",
-        linkedin: "https://www.linkedin.com/in/dxrpreet/ ",
-      },
-    ],
-    profile:
-      "Jogen is an emotionally intelligent AI journaling app designed to foster mindful self-reflection through private, personalized voice and text-based conversations.",
-    img: "/jogen.jpg",
-    buzzwords: [
-      "Emotionally Intelligent AI",
-      "Mood & Energy Tracking",
-      "Journaling",
-    ],
-  },
+
   {
     name: "Cohyve",
     link: "https://www.cohyve.io/",
