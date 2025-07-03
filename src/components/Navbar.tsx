@@ -14,7 +14,8 @@ const Navbar = () => {
     { text: "Niches", link: "/niches" },
     { text: "Advisors", link: "/advisors" },
     { text: "Portfolio", link: "/portfolio" },
-    { text: "News", link: "https://medium.com/@23ventureinc" },
+    { text: "Resources", link: "/resources" },
+    { text: "Blogs", link: "https://medium.com/@23ventureinc" },
   ];
 
   return (
