@@ -171,142 +171,155 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-black text-black dark:text-white py-16 px-4 md:px-8 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <motion.div className="relative w-full min-h-screen flex justify-center  text-white items-center gap-4 p-8 flex-col overflow-hidden mb-8 bgGradient">
+        <video
+          src="/portbg.mp4"
+          autoPlay
+          loop
+          muted
+          controls={false}
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
+        ></video>
+        {/* Header Section */}
         {/* Header Section */}
         <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
           <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-black dark:from-white via-green-600 to-black dark:to-white text-center">
             <span className="text-color">Portfolio</span>
           </h1>
-          <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%] text-gray-700 dark:text-gray-300">
+          <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%] text-gray-300">
             A glimpse into the journeys we have been part of.
           </p>
         </div>
+      </motion.div>
+      <div className="w-full min-h-screen bg-white dark:bg-black text-black dark:text-white py-16 px-4 md:px-8 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto">
+          {/* Advisors Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {advisors.map((advisor, index) => (
+              <div
+                key={index}
+                onMouseMove={(e) => handleMouseMove(e, index)}
+                onMouseLeave={handleMouseLeave}
+                className="relative flex flex-col flex-wrap md:flex-row items-center justify-start border border-[#499478]/30 dark:border-green-400/20 p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 hover:border-[#499478] backdrop-blur-md overflow-hidden w-full max-w-4xl min-h-[320px] md:min-h-[280px] bg-transparent"
+              >
+                {hoveredCard === index && hoverPos && (
+                  <motion.div
+                    className="pointer-events-none absolute rounded-full"
+                    style={{
+                      top: hoverPos.y - 75,
+                      left: hoverPos.x - 75,
+                      width: 150,
+                      height: 150,
+                      background: isDarkMode
+                        ? "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)"
+                        : "radial-gradient(circle, rgba(51,52,53,0.3) 0%, rgba(51,52,53,0) 60%)",
+                      filter: "blur(30px)",
+                      mixBlendMode: "screen",
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
+                )}
 
-        {/* Advisors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          {advisors.map((advisor, index) => (
-            <div
-              key={index}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              onMouseLeave={handleMouseLeave}
-              className="relative flex flex-col flex-wrap md:flex-row items-center justify-start border border-[#499478]/30 dark:border-green-400/20 p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 hover:border-[#499478] backdrop-blur-md overflow-hidden w-full max-w-4xl min-h-[320px] md:min-h-[280px] bg-transparent"
-            >
-              {hoveredCard === index && hoverPos && (
-                <motion.div
-                  className="pointer-events-none absolute rounded-full"
-                  style={{
-                    top: hoverPos.y - 75,
-                    left: hoverPos.x - 75,
-                    width: 150,
-                    height: 150,
-                    background: isDarkMode
-                      ? "radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)"
-                      : "radial-gradient(circle, rgba(51,52,53,0.3) 0%, rgba(51,52,53,0) 60%)",
-                    filter: "blur(30px)",
-                    mixBlendMode: "screen",
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-              )}
+                {/* Horizontal Layout */}
+                <div className="flex flex-row gap-6 w-full h-full items-start">
+                  {/* Image */}
+                  <div className="flex-shrink-0 w-20 h-20 md:w-40 md:h-40 rounded-md overflow-hidden shadow-xl relative bg-transparent">
+                    {advisor.img ? (
+                      <Image
+                        src={advisor.img}
+                        alt={advisor.name}
+                        fill
+                        sizes="160px"
+                        className="object-contain"
+                        priority
+                      />
+                    ) : (
+                      <div className="w-full h-full flex justify-center items-center text-md md:text-2xl font-bold text-black dark:text-white">
+                        {advisor.name}
+                      </div>
+                    )}
+                  </div>
 
-              {/* Horizontal Layout */}
-              <div className="flex flex-row gap-6 w-full h-full items-start">
-                {/* Image */}
-                <div className="flex-shrink-0 w-20 h-20 md:w-40 md:h-40 rounded-md overflow-hidden shadow-xl relative bg-transparent">
-                  {advisor.img ? (
-                    <Image
-                      src={advisor.img}
-                      alt={advisor.name}
-                      fill
-                      sizes="160px"
-                      className="object-contain"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full flex justify-center items-center text-md md:text-2xl font-bold text-black dark:text-white">
-                      {advisor.name}
-                    </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col h-full flex-grow">
-                  <div className="mb-4">
-                    <a
-                      href={advisor.link.trim()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center text-color text-3xl md:text-4xl font-bold mb-1 transition-colors"
-                    >
-                      <span className="mr-2">{advisor.name}</span>
-                      <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
-                    </a>
-                    {/* Show LinkedIn icon only if the main link is a LinkedIn URL */}
-                    {advisor.linkedinlink && (
+                  {/* Content */}
+                  <div className="flex flex-col h-full flex-grow">
+                    <div className="mb-4">
                       <a
-                        href={advisor.linkedinlink.trim()}
+                        href={advisor.link.trim()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${advisor.name} LinkedIn`}
-                        className=" group inline-flex m-3 text-gray-600 dark:text-gray-400"
+                        className="group inline-flex items-center text-color text-3xl md:text-4xl font-bold mb-1 transition-colors"
                       >
-                        <FaLinkedin className="text-2xl group-hover:scale-110 transition-transform" />
+                        <span className="mr-2">{advisor.name}</span>
+                        <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
                       </a>
-                    )}
-
-                    <div className="flex flex-col gap-1 mb-3">
-                      {advisor.roles.map((person, i) => (
+                      {/* Show LinkedIn icon only if the main link is a LinkedIn URL */}
+                      {advisor.linkedinlink && (
                         <a
-                          key={i}
-                          href={person.linkedin}
+                          href={advisor.linkedinlink.trim()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group inline-flex items-center text-gray-600 dark:text-gray-400"
+                          aria-label={`${advisor.name} LinkedIn`}
+                          className=" group inline-flex m-3 text-gray-600 dark:text-gray-400"
                         >
-                          <span className="mr-2">{person.name}</span>
-                          <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
+                          <FaLinkedin className="text-2xl group-hover:scale-110 transition-transform" />
                         </a>
+                      )}
+
+                      <div className="flex flex-col gap-1 mb-3">
+                        {advisor.roles.map((person, i) => (
+                          <a
+                            key={i}
+                            href={person.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center text-gray-600 dark:text-gray-400"
+                          >
+                            <span className="mr-2">{person.name}</span>
+                            <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {advisor.buzzwords.map((word, i) => (
+                        <span
+                          key={i}
+                          className="text-xs md:text-sm bg-green-800/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full border border-green-600"
+                        >
+                          {word}
+                        </span>
                       ))}
                     </div>
-                  </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {advisor.buzzwords.map((word, i) => (
-                      <span
-                        key={i}
-                        className="text-xs md:text-sm bg-green-800/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full border border-green-600"
-                      >
-                        {word}
-                      </span>
-                    ))}
+                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-[90%]">
+                      {advisor.profile}
+                    </p>
                   </div>
-
-                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-[90%]">
-                    {advisor.profile}
-                  </p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Call to Action */}
-        <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
-          <h1 className="md:text-7xl text-5xl font-bold bg-clip-text bg-gradient-to-r from-black dark:from-white via-green-600 to-black dark:to-white text-center">
-            Want to join our <br />{" "}
-            <span className="text-color">portfolio?</span>
-          </h1>
-          <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%] text-gray-700 dark:text-gray-300">
-            Have an idea that aligns with our vision? Share it with us — start
-            your application today!
-          </p>
-          <Button onClickUrl="https://tally.so/r/mZLPk5" text="Apply" />
+          {/* Call to Action */}
+          <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
+            <h1 className="md:text-7xl text-5xl font-bold bg-clip-text bg-gradient-to-r from-black dark:from-white via-green-600 to-black dark:to-white text-center">
+              Want to join our <br />{" "}
+              <span className="text-color">portfolio?</span>
+            </h1>
+            <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%] text-gray-700 dark:text-gray-300">
+              Have an idea that aligns with our vision? Share it with us — start
+              your application today!
+            </p>
+            <Button onClickUrl="https://tally.so/r/mZLPk5" text="Apply" />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

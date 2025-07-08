@@ -86,19 +86,29 @@ const Page = () => {
 
   return (
     <>
+      <motion.div className="relative w-full min-h-screen flex justify-center  text-white items-center gap-4 p-8 flex-col overflow-hidden mb-8 bgGradient">
+        <video
+          src="/advbg.mp4"
+          autoPlay
+          loop
+          muted
+          controls={false}
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-[-1] blur-[1px]"
+        ></video>
+        {/* Header Section */}
+        <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
+          <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-black via-green-600 to-black dark:from-white dark:via-green-400 dark:to-white text-center">
+            Our <span className="text-color"> Advisors </span>
+          </h1>
+          <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%]">
+            Our advisory team consists of serial entrepreneurs, experienced
+            operators and seasoned investors.
+          </p>
+        </div>
+      </motion.div>
       <div className="w-full min-h-screen bg-white text-black dark:bg-black dark:text-white py-16 px-4 md:px-8 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <div className="w-full h-screen flex justify-center items-center flex-col gap-8">
-            <h1 className="md:text-9xl text-6xl font-bold bg-clip-text bg-gradient-to-r from-black via-green-600 to-black dark:from-white dark:via-green-400 dark:to-white text-center">
-              Our <span className="text-color"> Advisors </span>
-            </h1>
-            <p className="md:text-xl text-lg text-center font-semibold mb-8 italic md:w-[55%]">
-              Our advisory team consists of serial entrepreneurs, experienced
-              operators and seasoned investors.
-            </p>
-          </div>
-
           {/* Advisors Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-16">
             {advisors.map((advisor, index) => (
