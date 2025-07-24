@@ -84,24 +84,7 @@ const advisors = [
     img: "/Geochain.png",
     buzzwords: ["Web3", "Tokenization", "Smart Contracts"],
   },
-  {
-    name: "Shoutout",
-    link: "https://www.shoutoutkaro.in/",
-    roles: [
-      {
-        name: "Adarsh Stanly",
-        linkedin: "https://www.linkedin.com/in/adarsh-stanly-819667124  ",
-      },
-      {
-        name: "Tushar Tomar",
-        linkedin: "https://www.linkedin.com/in/tushar-tomar-b20aa7a1 ",
-      },
-    ],
-    profile:
-      "Shoutout is a two-sided marketplace that connects brands with everyday people who can promote them through simple online or offline tasks in return for stipends.",
-    img: "", // No image provided
-    buzzwords: ["Gig Economy", "Community Marketing", "Brand Promotion"],
-  },
+
   {
     name: "Diigoo",
     link: "https://diigoo.com/",
@@ -125,22 +108,6 @@ const advisors = [
       "Blockchain Infrastructure",
       "BaaS (Blockchain-as-a-Service)",
     ],
-  },
-
-  {
-    name: "Cohyve",
-    link: "https://www.cohyve.io/",
-    linkedinlink: "https://www.linkedin.com/company/cohyve/",
-    roles: [
-      {
-        name: "Rupesh Kumar",
-        linkedin: "https://www.linkedin.com/in/therupeshkumar/",
-      },
-    ],
-    profile:
-      "Cohyve is a scalable, on-demand creative platform that connects brands with top-tier global design talent to deliver high-quality, fast-turnaround visual content across every format.",
-    img: "/cohvey.jpeg",
-    buzzwords: ["Creative Ops", "Scalable Workflows", "Task Automation"],
   },
 ];
 
