@@ -109,6 +109,25 @@ const advisors = [
       "BaaS (Blockchain-as-a-Service)",
     ],
   },
+  {
+    name: "Fatoorati ",
+    link: "https://fatoorati.me/",
+    linkedinlink: "https://www.linkedin.com/company/fatoorati/",
+    roles: [
+      {
+        name: "Maan Al Saadi ",
+        linkedin: "https://www.linkedin.com/in/maanalsaadi/",
+      },
+      {
+        name: "Yousif Al Saadi",
+        linkedin: "https://www.linkedin.com/in/yousifalsaadi/",
+      },
+    ],
+    profile:
+      "Fatoorati helps restaurants turn first-time visitors into loyal customers using just their phone number. No apps, no cards - loyalty that just works.",
+    img: "/fatoorati.png",
+    buzzwords: ["Loyalty Tech", "AI SaaS", "Payments & Rewards"],
+  },
 ];
 
 const Page = () => {
