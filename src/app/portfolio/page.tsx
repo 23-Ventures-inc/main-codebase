@@ -11,14 +11,16 @@ const advisors = [
   {
     name: "Youmat",
     link: "https://youmat.in/",
-    linkedinlink: "https://www.linkedin.com/company/youmathealth/  ",
+    linkedinlink: "https://www.linkedin.com/company/youmathealth/",
     roles: [
       {
         name: "Ayan Mondal",
+        college: "IIT Madras",
         linkedin: "https://www.linkedin.com/in/ayan-mondal-6b6919275/",
       },
       {
         name: "Disha Vanel",
+        college: "Sydenham College of Commerce and Economics",
         linkedin: "https://www.linkedin.com/in/disha-vanel-a1409b251/",
       },
     ],
@@ -29,15 +31,17 @@ const advisors = [
   },
   {
     name: "Verbly",
-    link: "https://www.verblyai.com/ ",
+    link: "https://www.verblyai.com/",
     linkedinlink: "https://www.linkedin.com/company/verblyai",
     roles: [
       {
         name: "Abhishek Bhattacharjee",
+        college: "Bhilai Institute of Technology",
         linkedin: "https://my.linkedin.com/in/abhishekb1",
       },
       {
         name: "Harshit Mishra",
+        college: "Rungta College of Engineering and Technology",
         linkedin: "https://www.linkedin.com/in/harshit-senpai/",
       },
     ],
@@ -48,19 +52,22 @@ const advisors = [
   },
   {
     name: "Vectr",
-    link: "https://vectr.co.in ",
+    link: "https://vectr.co.in",
     linkedinlink: "https://www.linkedin.com/company/vectrs",
     roles: [
       {
         name: "Abhinav Pentani",
+        college: "Vellore Institute of Technology",
         linkedin: "https://www.linkedin.com/in/abhinav-pentani",
       },
       {
         name: "Shaik Saifuddin",
+        college: "Vellore Institute of Technology",
         linkedin: "https://www.linkedin.com/in/shaik-saifuddin-482947272",
       },
       {
         name: "Ayus Pathak",
+        college: "Vellore Institute of Technology",
         linkedin: "https://www.linkedin.com/in/ayus-pathak",
       },
     ],
@@ -71,11 +78,12 @@ const advisors = [
   },
   {
     name: "Geochain",
-    link: "http://linkedin.com/company/geochain ",
-    linkedinlink: "http://linkedin.com/company/geochain ",
+    link: "http://linkedin.com/company/geochain",
+    linkedinlink: "http://linkedin.com/company/geochain",
     roles: [
       {
         name: "Aryan Gupta",
+        college: "Deen Dayal Upadhyaya College",
         linkedin: "https://www.linkedin.com/in/aryan-gupta-00ab92203/",
       },
     ],
@@ -84,7 +92,6 @@ const advisors = [
     img: "/Geochain.png",
     buzzwords: ["Web3", "Tokenization", "Smart Contracts"],
   },
-
   {
     name: "Diigoo",
     link: "https://diigoo.com/",
@@ -92,11 +99,13 @@ const advisors = [
     roles: [
       {
         name: "Sainath Tangallapelly",
+        college: "International School of Medicine",
         linkedin:
           "https://www.linkedin.com/in/sainath-tangallapelly-b5a890160/",
       },
       {
         name: "Nagasai Chimmili",
+        college: "Sasi Institute of Technology and Engineering",
         linkedin: "https://www.linkedin.com/in/nagasai-chimmili/",
       },
     ],
@@ -110,16 +119,18 @@ const advisors = [
     ],
   },
   {
-    name: "Fatoorati ",
+    name: "Fatoorati",
     link: "https://fatoorati.me/",
     linkedinlink: "https://www.linkedin.com/company/fatoorati/",
     roles: [
       {
-        name: "Maan Al Saadi ",
+        name: "Maan Al Saadi",
+        college: "",
         linkedin: "https://www.linkedin.com/in/maanalsaadi/",
       },
       {
         name: "Yousif Al Saadi",
+        college: "",
         linkedin: "https://www.linkedin.com/in/yousifalsaadi/",
       },
     ],
@@ -233,40 +244,51 @@ const Page = () => {
                   {/* Content */}
                   <div className="flex flex-col h-full flex-grow">
                     <div className="mb-4">
-                      <a
-                        href={advisor.link.trim()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center text-color text-3xl md:text-4xl font-bold mb-1 transition-colors"
-                      >
-                        <span className="mr-2">{advisor.name}</span>
-                        <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
-                      </a>
-                      {/* Show LinkedIn icon only if the main link is a LinkedIn URL */}
-                      {advisor.linkedinlink && (
+                      <div className="inline-flex items-center mb-1">
+                        {/* Main advisor name link */}
                         <a
-                          href={advisor.linkedinlink.trim()}
+                          href={advisor.link.trim()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`${advisor.name} LinkedIn`}
-                          className=" group inline-flex m-3 text-gray-600 dark:text-gray-400"
+                          className="group inline-flex items-center text-color text-3xl md:text-4xl font-bold transition-colors"
                         >
-                          <FaLinkedin className="text-2xl group-hover:scale-110 transition-transform" />
+                          <span className="mr-2">{advisor.name}</span>
+                          <FaExternalLinkAlt className="text-base md:text-lg group-hover:scale-110 transition-transform" />
                         </a>
-                      )}
 
-                      <div className="flex flex-col gap-1 mb-3">
-                        {advisor.roles.map((person, i) => (
+                        {/* LinkedIn icon right next to name */}
+                        {advisor.linkedinlink && (
                           <a
-                            key={i}
-                            href={person.linkedin}
+                            href={advisor.linkedinlink.trim()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center text-gray-600 dark:text-gray-400"
+                            aria-label={`${advisor.name} LinkedIn`}
+                            className="ml-2 text-gray-600 dark:text-gray-400"
                           >
-                            <span className="mr-2">{person.name}</span>
-                            <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
+                            <FaLinkedin className="text-2xl hover:scale-110 transition-transform" />
                           </a>
+                        )}
+                      </div>
+
+                      {/* Roles list */}
+                      <div className="flex flex-col gap-2 mb-3">
+                        {advisor.roles.map((person, i) => (
+                          <div key={i} className="flex flex-col">
+                            <a
+                              href={person.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center text-gray-600 dark:text-gray-400"
+                            >
+                              <span className="mr-2">{person.name}</span>
+                              <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
+                            </a>
+                            {person.college && (
+                              <span className="text-sm text-gray-500">
+                                ({person.college})
+                              </span>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>
