@@ -36,12 +36,12 @@ const advisors = [
     roles: [
       {
         name: "Abhishek Bhattacharjee",
-        college: "Bhilai Institute of Technology",
+        college: "Bhilai Institute of Technology, Durg",
         linkedin: "https://my.linkedin.com/in/abhishekb1",
       },
       {
         name: "Harshit Mishra",
-        college: "Rungta College of Engineering and Technology",
+        college: "Rungta College of Engineering and Technology, Bhilai",
         linkedin: "https://www.linkedin.com/in/harshit-senpai/",
       },
     ],
@@ -83,7 +83,7 @@ const advisors = [
     roles: [
       {
         name: "Aryan Gupta",
-        college: "Deen Dayal Upadhyaya College",
+        college: "Deen Dayal Upadhyaya College, University of Delhi",
         linkedin: "https://www.linkedin.com/in/aryan-gupta-00ab92203/",
       },
     ],
