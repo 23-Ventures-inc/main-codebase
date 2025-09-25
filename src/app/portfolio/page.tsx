@@ -92,7 +92,12 @@ const advisors = [
     img: "/Geochain.png",
     buzzwords: ["Web3", "Tokenization", "Smart Contracts"],
   },
-  {
+  
+  
+];
+
+/* 
+{
     name: "Diigoo",
     link: "https://diigoo.com/",
     linkedinlink: "https://www.linkedin.com/company/diigoo/",
@@ -118,7 +123,7 @@ const advisors = [
       "BaaS (Blockchain-as-a-Service)",
     ],
   },
-  {
+{
     name: "Fatoorati",
     link: "https://fatoorati.me/",
     linkedinlink: "https://www.linkedin.com/company/fatoorati/",
@@ -139,7 +144,8 @@ const advisors = [
     img: "/fatoorati.png",
     buzzwords: ["Loyalty Tech", "AI SaaS", "Payments & Rewards"],
   },
-];
+*/
+
 
 const Page = () => {
   const { theme } = useTheme(); // get current theme
