@@ -92,12 +92,7 @@ const advisors = [
     img: "/Geochain.png",
     buzzwords: ["Web3", "Tokenization", "Smart Contracts"],
   },
-  
-  
-];
-
-
-{
+  {
     name: "Diigoo",
     link: "https://diigoo.com/",
     linkedinlink: "https://www.linkedin.com/company/diigoo/",
@@ -123,6 +118,10 @@ const advisors = [
       "BaaS (Blockchain-as-a-Service)",
     ],
   }
+    ];
+
+
+
         /* 
 {
     name: "Fatoorati",
