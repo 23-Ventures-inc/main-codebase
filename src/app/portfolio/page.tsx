@@ -96,7 +96,7 @@ const advisors = [
   
 ];
 
-/* 
+
 {
     name: "Diigoo",
     link: "https://diigoo.com/",
@@ -122,7 +122,8 @@ const advisors = [
       "Blockchain Infrastructure",
       "BaaS (Blockchain-as-a-Service)",
     ],
-  },
+  }
+        /* 
 {
     name: "Fatoorati",
     link: "https://fatoorati.me/",
