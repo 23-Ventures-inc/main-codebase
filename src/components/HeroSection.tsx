@@ -5,6 +5,10 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 const imagesRow1 = [
+  "/col24.jpg",
+  "/col25.jpg",
+  "/col26.jpg",
+  "/col27.jpg",
   "/col15.jpg",
   "/col18.jpg",
   "/col22.jpeg",
@@ -18,6 +22,11 @@ const imagesRow1 = [
   "/img3.png",
 ];
 const imagesRow3 = [
+  "/col28.jpg",
+  "/col29.jpg",
+  "/col30.jpg",
+  "/col31.jpg",
+  "/col32.jpg",
   "/col5.jpg",
   "/col6.jpg",
   "/col7.png",
