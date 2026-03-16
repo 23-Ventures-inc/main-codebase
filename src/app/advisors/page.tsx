@@ -56,6 +56,14 @@ const advisors = [
     img: "/advisers/a6.jpeg",
     link: "https://www.linkedin.com/in/kj-lavan-1739ab226/?utm_source=share&utm_campaign=",
   },
+  {
+    name: "Thiago Aguiar",
+    role: "Advisor",
+    profile:
+      "Two decades of entrepreneurial experience. Strategic positions in multinational companies. C-Level roles in international trade firms. Represents 23Ventures at Brazilian VC market. Advises on strategic workflow optimization systems, bringing discipline to the fixed-deadline method within the Startup acceleration process.",
+    img: "/advisers/a7.jpg",
+    link: "https://www.linkedin.com/in/thiaguiar/",
+  },
 ];
 
 const Page = () => {
